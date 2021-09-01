@@ -18,7 +18,7 @@ public class AccidentScene extends AppCompatActivity {
     //firebase definition
 
     FirebaseDatabase root;
-    DatabaseReference referenci2;
+    DatabaseReference referenci;
 
     //onCreate method
     @Override
@@ -57,8 +57,8 @@ public class AccidentScene extends AppCompatActivity {
         //handling firebase
 
         root = FirebaseDatabase.getInstance();
-        referenci2 = root.getReference();
-        referenci2 = root.getReference(  "professionals");
+        referenci = root.getReference();
+        referenci = root.getReference(  "AccidentSceneRecords");
 
         //getting text from input fields
 
@@ -68,7 +68,7 @@ public class AccidentScene extends AppCompatActivity {
         String DriverLicenseNumber= licenseNumber.getEditText().getText().toString();
 
         AccidentSceneRecords accidentScene = new AccidentSceneRecords(carReg,locationOfAccidentScene,DriverLicenseNumber);
-        referenci2.setValue(accidentScene);
+        referenci.child(DriverLicenseNumber).setValue(accidentScene);
 
         //handling errors
 
