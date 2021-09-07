@@ -79,7 +79,11 @@
         inputType="password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:hint="Password"
         android:padding="10dp"
         android:paddingLeft="10dp"
@@ -91,19 +95,18 @@
         app:endIconDrawable="@drawable/ic_clear"
         app:endIconMode="clear_text"
         app:endIconTint="@color/purple_700"
-        app:layout_constraintBottom_toTopOf="@+id/trafficOfficerLogInBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inspectVehicleNumber"
         app:startIconDrawable="@drawable/ic_password_icon"
         app:startIconTint="@color/purple_700"
-        tools:ignore="MissingConstraints">
+        tools:ignore="ExtraText,MissingConstraints,UnknownIdInLayout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/purple_700"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword"
+            android:textColor="@color/purple_700" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
