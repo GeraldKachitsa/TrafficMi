@@ -8,10 +8,17 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class UpdateVehicleRecords extends AppCompatActivity {
-    private TextInputLayout nameOfCarOwner, carColor, carMake, carName;
+    private TextInputLayout vehicleRegNumber, carColor, carMake, carName;
     private Button updateVehicleRecordsBtn;
+
+    //firebase database
+
+    FirebaseDatabase root;
+    DatabaseReference referenci;
 
 
     @Override
@@ -19,7 +26,7 @@ public class UpdateVehicleRecords extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_vehicle_records);
 
-        nameOfCarOwner = (TextInputLayout) findViewById(R.id.nameOfCarOwner);
+        vehicleRegNumber = (TextInputLayout) findViewById(R.id.vehicleRegistrationNumber);
         carColor = (TextInputLayout) findViewById(R.id.location);
         carMake= (TextInputLayout) findViewById(R.id.licenseNumber);
         carName = (TextInputLayout) findViewById(R.id.carRegNumber);
@@ -36,11 +43,19 @@ public class UpdateVehicleRecords extends AppCompatActivity {
     }
 
     public void updateVehicleRecords() {
-        String fullNameOfCar = nameOfCarOwner.getEditText().getText().toString().trim();
 
-        if (fullNameOfCar.isEmpty()) {
-            nameOfCarOwner.setErrorEnabled(true);
-            nameOfCarOwner.setError("Name of a car cannot be empty");
+        //firebase Database
+
+        root = FirebaseDatabase.getInstance();
+        referenci = root.getReference();
+        referenci = root.getReference(  "UpdatedVehicleRecords");
+
+
+        String vehicleRegistrationNumber = vehicleRegNumber.getEditText().getText().toString().trim();
+
+        if (vehicleRegistrationNumber.isEmpty()) {
+            vehicleRegNumber.setErrorEnabled(true);
+            vehicleRegNumber.setError("Name of a car cannot be empty");
         }
 
         String colorOfCar = carColor.getEditText().getText().toString().trim();
@@ -59,11 +74,18 @@ public class UpdateVehicleRecords extends AppCompatActivity {
             carName.setError("Name of a car cannot be empty");
         }else {
 
+            // Write to Database
+
+
+            UpdatedVehicleRecords updatedVehicleRecords = new UpdatedVehicleRecords(nameOfCar, makeOfCar, colorOfCar, vehicleRegistrationNumber);
+            referenci.child(vehicleRegistrationNumber).setValue(updatedVehicleRecords);
+
+
             Toast.makeText(getApplicationContext(),
                     "Vehicle Records Successfully updated",
                     Toast.LENGTH_LONG)
                     .show();
-            nameOfCarOwner.getEditText().setText("");
+            vehicleRegNumber.getEditText().setText("");
             carColor.getEditText().setText("");
             carMake.getEditText().setText("");
             carName.getEditText().setText("");

@@ -8,35 +8,38 @@ import android.view.View;
 import android.widget.Button;
 
 public class ChiefTrafficOfficerChoiceOfWork extends AppCompatActivity {
-    private Button updateDriverChoiceBtn, issueWarrantOfArrestBtn, updateVehicleRecordsChoiceBtn;
+    private Button accidentSceneBtn,  driverOffenceBtn,reportVehicleTheftBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chief_traffic_officer_choice_of_work);
 
-        updateDriverChoiceBtn = (Button) findViewById(R.id.inspectDriverChoiceBtn);
+        accidentSceneBtn = (Button) findViewById(R.id.driverOffenceBtn);
+
+        reportVehicleTheftBtn = (Button) findViewById(R.id.reportVehicleTheftBtn);
 
 
-        updateDriverChoiceBtn.setOnClickListener(new View.OnClickListener() {
+        accidentSceneBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 goToUpdateDriverRecords();
             }
         });
-        issueWarrantOfArrestBtn = (Button) findViewById(R.id.accidentSceneChoice);
-        issueWarrantOfArrestBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToIssueWarrantOfArrest();
-            }
-        });
 
-        updateVehicleRecordsChoiceBtn= (Button) findViewById(R.id.updateVehicleRecordsChoiceBtn);
-        updateVehicleRecordsChoiceBtn.setOnClickListener(new View.OnClickListener() {
+
+        driverOffenceBtn= (Button) findViewById(R.id.accidentSceneBtn);
+        driverOffenceBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 goToUpdateVehicleRecords();
+            }
+        });
+
+        reportVehicleTheftBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToReportVehicleTheft();
             }
         });
 
@@ -44,11 +47,14 @@ public class ChiefTrafficOfficerChoiceOfWork extends AppCompatActivity {
     public void goToUpdateDriverRecords(){
         startActivity( new Intent(this,UpdateDriverRecords.class));
     }
-    public void goToIssueWarrantOfArrest(){
-        startActivity( new Intent(this,IssueWarrantOfArrest.class));
-    }
+
     public void goToUpdateVehicleRecords(){
         startActivity( new Intent(this,UpdateVehicleRecords.class));
     }
+
+    public void goToReportVehicleTheft(){
+        startActivity( new Intent(this,ReportVehicleTheft.class));
+    }
+
 
 }

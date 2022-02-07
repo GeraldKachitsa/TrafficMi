@@ -6,11 +6,40 @@
     android:layout_height="match_parent"
     tools:context=".UpdateDriverRecords">
 
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="118dp"
+        android:layout_height="47dp"
+        android:text="Overloading"
+        android:textColor="@color/teal_200"
+
+        app:layout_constraintBottom_toTopOf="@+id/goToNextOffenceBtn"
+        app:layout_constraintEnd_toEndOf="@+id/checkBox2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/checkBox2"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="92dp"
+        android:text="No license"
+
+        android:textColor="@color/teal_200"
+        app:layout_constraintBottom_toTopOf="@+id/goToNextOffenceBtn"
+        app:layout_constraintEnd_toEndOf="@+id/checkBox"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/checkBox"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox"
+        app:layout_constraintVertical_bias="0.0" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
-        android:text="Update Driver Records"
+        android:text="Record Driver Offences"
         android:layout_marginTop="30dp"
         android:paddingTop="15dp"
         android:textColor="@color/purple_700"
@@ -23,12 +52,13 @@
         tools:layout_editor_absoluteY="16dp" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/nameOfCarOwner"
+        android:id="@+id/vehicleRegistrationNumber"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="297dp"
+        android:layout_height="72dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="15dp"
-        android:hint="Full Name of driver"
+        android:hint="Name"
         android:padding="10dp"
         android:paddingLeft="10dp"
         android:paddingTop="100dp"
@@ -38,10 +68,10 @@
         app:endIconDrawable="@drawable/ic_clear"
         app:endIconMode="clear_text"
         app:endIconTint="@color/purple_700"
+        app:flow_verticalBias="0.9"
         app:layout_constraintBottom_toTopOf="@+id/licenseNumber"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:flow_verticalBias="0.9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:startIconDrawable="@drawable/ic_account"
@@ -51,17 +81,17 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-           android:inputType="text"/>
+            android:inputType="text" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/licenseNumber"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:hint="Driver's License number"
+        android:layout_width="297dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="8dp"
+        android:hint="License number"
         android:padding="10dp"
         android:paddingLeft="10dp"
         android:paddingTop="100dp"
@@ -71,10 +101,10 @@
         app:endIconDrawable="@drawable/ic_clear"
         app:endIconMode="clear_text"
         app:endIconTint="@color/purple_700"
-        app:layout_constraintEnd_toEndOf="@+id/nameOfCarOwner"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/nameOfCarOwner"
-        app:layout_constraintTop_toBottomOf="@+id/nameOfCarOwner"
+        app:layout_constraintEnd_toEndOf="@+id/vehicleRegistrationNumber"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/vehicleRegistrationNumber"
+        app:layout_constraintTop_toBottomOf="@+id/vehicleRegistrationNumber"
         app:startIconDrawable="@drawable/ic_id"
         app:startIconTint="@color/purple_700"
         tools:ignore="MissingConstraints">
@@ -82,17 +112,19 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"/>
+            android:inputType="text" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/carRegNumber"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:hint="Address"
+        android:layout_width="297dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="16dp"
+        android:hint="Location"
         android:padding="10dp"
         android:paddingLeft="10dp"
         android:paddingTop="100dp"
@@ -111,27 +143,48 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"/>
+            android:inputType="text" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/updateDriverRecordsBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:id="@+id/goToNextOffenceBtn"
+        android:layout_width="110dp"
+        android:layout_height="56dp"
 
+        android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginBottom="50dp"
-        android:text="Update"
+        android:paddingLeft="2dp"
+        android:text="Next"
+        app:icon="@drawable/ic_next"
+        app:iconSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintHorizontal_bias="0.935"
         app:layout_constraintStart_toStartOf="@+id/carRegNumber"
         app:layout_constraintTop_toBottomOf="@+id/carRegNumber"
-        app:layout_constraintVertical_bias="0.226"
+        app:layout_constraintVertical_bias="0.988"
         tools:ignore="MissingConstraints" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:shadowColor="@color/teal_200"
+        android:text="No belt"
+
+        android:textColor="@color/teal_200"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.131"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/carRegNumber" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

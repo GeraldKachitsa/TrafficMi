@@ -11,7 +11,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="40dp"
         android:layout_marginBottom="8dp"
         android:hint="Username"
         android:padding="10dp"
@@ -19,11 +19,14 @@
         android:paddingTop="100dp"
         android:paddingRight="10dp"
         android:textColorHint="@color/purple_700"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         app:endIconDrawable="@drawable/ic_clear"
         app:endIconMode="clear_text"
         app:endIconTint="@color/purple_700"
         app:layout_constraintBottom_toTopOf="@+id/trafficOfficerPassword"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
         app:startIconDrawable="@drawable/ic_account"
@@ -33,9 +36,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/purple_700"
             android:inputType="textEmailAddress"
-            app:boxStrokeColor="@color/purple_700"/>
+            android:textColor="@color/purple_700"
+            app:boxStrokeColor="@color/purple_700" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -57,11 +60,11 @@
 
     <Button
         android:id="@+id/chiefTrafficOfficerSignInBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="332dp"
+        android:layout_height="63dp"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:layout_marginBottom="32dp"
@@ -70,8 +73,10 @@
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/trafficOfficerPassword"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="@+id/trafficOfficerPassword"
-        app:layout_constraintTop_toBottomOf="@+id/trafficOfficerPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/trafficOfficerPassword"
+        app:layout_constraintVertical_bias="0.643" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/trafficOfficerPassword"
@@ -79,11 +84,11 @@
         inputType="password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
         android:hint="Password"
         android:padding="10dp"
         android:paddingLeft="10dp"
@@ -96,6 +101,7 @@
         app:endIconMode="clear_text"
         app:endIconTint="@color/purple_700"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inspectVehicleNumber"
         app:startIconDrawable="@drawable/ic_password_icon"

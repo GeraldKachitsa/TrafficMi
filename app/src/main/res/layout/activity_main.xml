@@ -7,59 +7,31 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="123dp"
-        android:layout_height="119dp"
-        android:layout_marginTop="24dp"
-        android:src="@drawable/ic_home_icon"
-        app:layout_constraintBottom_toTopOf="@+id/chiefTrafficOfficerLogInBtn"
+        android:id="@+id/ic_car"
+        android:layout_width="289dp"
+        android:layout_height="259dp"
+        android:layout_marginTop="164dp"
+        android:src="@drawable/ic_car_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.319"
+        app:layout_constraintVertical_bias="0.326"
         app:tint="@color/purple_700" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/appLabelTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Log in as"
+        android:text="RoTraRe"
         android:textColor="@color/purple_700"
+        android:textSize="30dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.354"
+        app:layout_constraintHorizontal_bias="0.535"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/chiefTrafficOfficerLogInBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:text="Chief Traffic officer"
-        android:textColor="@color/white"
-        app:backgroundTint="@color/purple_700"
-        app:layout_constraintBottom_toTopOf="@+id/trafficOfficerHomeLogInBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.488" />
-
-    <Button
-        android:id="@+id/trafficOfficerHomeLogInBtn"
-        android:layout_width="225dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginBottom="40dp"
-        android:text="traffic officer"
-        android:textColor="@color/white"
-        app:backgroundTint="@color/purple_700"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/chiefTrafficOfficerLogInBtn"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/chiefTrafficOfficerLogInBtn"
-        app:layout_constraintTop_toBottomOf="@+id/chiefTrafficOfficerLogInBtn" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.68" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

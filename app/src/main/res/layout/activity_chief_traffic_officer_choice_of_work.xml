@@ -7,7 +7,7 @@
     tools:context=".ChiefTrafficOfficerChoiceOfWork">
 
     <Button
-        android:id="@+id/inspectDriverChoiceBtn"
+        android:id="@+id/driverOffenceBtn"
         android:layout_width="241dp"
         android:layout_height="74dp"
         android:layout_marginStart="16dp"
@@ -18,11 +18,11 @@
         android:layout_marginBottom="16dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:text="Update Driver Records"
+        android:text="Driver Offences"
         android:textAllCaps="false"
         android:textStyle="bold"
         app:cornerRadius="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/updateVehicleRecordsChoiceBtn"
+        app:layout_constraintBottom_toTopOf="@+id/accidentSceneBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
@@ -30,7 +30,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/updateVehicleRecordsChoiceBtn"
+        android:id="@+id/accidentSceneBtn"
         android:layout_width="241dp"
         android:layout_height="74dp"
         android:layout_marginStart="16dp"
@@ -41,18 +41,18 @@
         android:layout_marginBottom="16dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:text="Update Vehicle Records"
+        android:text="Accident Scene"
         android:textAllCaps="false"
         android:textStyle="bold"
         app:cornerRadius="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/accidentSceneChoice"
-        app:layout_constraintEnd_toEndOf="@+id/inspectDriverChoiceBtn"
-        app:layout_constraintStart_toStartOf="@+id/inspectDriverChoiceBtn"
-        app:layout_constraintTop_toBottomOf="@+id/inspectDriverChoiceBtn"
+        app:layout_constraintBottom_toTopOf="@+id/reportVehicleTheftBtn"
+        app:layout_constraintEnd_toEndOf="@+id/driverOffenceBtn"
+        app:layout_constraintStart_toStartOf="@+id/driverOffenceBtn"
+        app:layout_constraintTop_toBottomOf="@+id/driverOffenceBtn"
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/accidentSceneChoice"
+        android:id="@+id/reportVehicleTheftBtn"
         android:layout_width="241dp"
         android:layout_height="74dp"
         android:layout_marginStart="16dp"
@@ -63,14 +63,14 @@
         android:layout_marginBottom="16dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:text="Issue warrant of arrest"
+        android:text="Vehicle Theft"
         android:textAllCaps="false"
         android:textStyle="bold"
         app:cornerRadius="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/updateVehicleRecordsChoiceBtn"
-        app:layout_constraintStart_toStartOf="@+id/updateVehicleRecordsChoiceBtn"
-        app:layout_constraintTop_toBottomOf="@+id/updateVehicleRecordsChoiceBtn"
+        app:layout_constraintEnd_toEndOf="@+id/accidentSceneBtn"
+        app:layout_constraintStart_toStartOf="@+id/accidentSceneBtn"
+        app:layout_constraintTop_toBottomOf="@+id/accidentSceneBtn"
         tools:ignore="MissingConstraints" />
 
     <TextView

@@ -4,36 +4,51 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    Button chiefTrafficOfficerLogInBtn, trafficOfficerHomeLogInBtn;
+    Button chiefTrafficOfficerLogInBtn;
+    Animation top_animation, bottom_animation;
+    ImageView ic_car;
+    TextView appLabelTxt;
+    private static int SPLASH_SCREEN = 5000;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        chiefTrafficOfficerLogInBtn = (Button) findViewById(R.id.chiefTrafficOfficerLogInBtn);
+        // Animation
+        top_animation = AnimationUtils.loadAnimation(this,R.anim.top_animation);
+        bottom_animation = AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
 
-        trafficOfficerHomeLogInBtn = (Button) findViewById(R.id.trafficOfficerHomeLogInBtn);
+        // Views
 
-       chiefTrafficOfficerLogInBtn.setOnClickListener(new View.OnClickListener() {
+        ic_car = (ImageView)findViewById(R.id.ic_car);
+        appLabelTxt = (TextView) findViewById(R.id.appLabelTxt);
+
+        // Setting animation
+        ic_car.setAnimation(bottom_animation);
+        appLabelTxt.setAnimation(top_animation);
+
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void onClick(View v) {
+            public void run() {
                 Intent intent = new Intent(MainActivity.this, ChiefTrafficLogIn.class);
                 startActivity(intent);
-
+                finish();
             }
-       });
-       trafficOfficerHomeLogInBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-          public void onClick(View v) {
-               Intent intent1 = new Intent(MainActivity.this, TrafficOfficerLogIn.class);
-               startActivity(intent1);
+        }, SPLASH_SCREEN);
 
-            }
-        });
+
+
+
 
 
     }
