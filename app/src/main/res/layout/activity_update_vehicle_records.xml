@@ -8,6 +8,8 @@
     android:scrollbarStyle="outsideOverlay"
     tools:context=".UpdateVehicleRecords">
 
+    <include
+        layout="@layout/toolbar"/>
     <TextView
         android:id="@+id/reportVehicleTheft"
         android:layout_width="201dp"
@@ -15,7 +17,7 @@
         android:layout_marginTop="60dp"
         android:layout_marginBottom="8dp"
         android:text="Accident Scene"
-        android:textColor="@color/purple_700"
+        android:textColor="@color/black"
         android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/carRegNumber"
@@ -40,18 +42,18 @@
         android:paddingLeft="10dp"
         android:paddingTop="100dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/purple_700"
-        app:boxStrokeColor="@color/purple_700"
+        android:textColorHint="@color/dim_grey"
+        app:boxStrokeColor="@color/dim_grey"
         app:endIconDrawable="@drawable/ic_clear"
         app:endIconMode="clear_text"
-        app:endIconTint="@color/purple_700"
+        app:endIconTint="@color/dim_grey"
         app:layout_constraintBottom_toTopOf="@+id/accidentSceneRecordsBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/location"
         app:layout_constraintTop_toBottomOf="@+id/location"
         app:startIconDrawable="@drawable/ic_account"
-        app:startIconTint="@color/purple_700"
+        app:startIconTint="@color/black"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -77,17 +79,17 @@
         android:paddingLeft="10dp"
         android:paddingTop="100dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/purple_700"
-        app:boxStrokeColor="@color/purple_700"
+        android:textColorHint="@color/black"
+        app:boxStrokeColor="@color/black"
         app:endIconDrawable="@drawable/ic_clear"
         app:endIconMode="clear_text"
-        app:endIconTint="@color/purple_700"
+        app:endIconTint="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/licenseNumber"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reportVehicleTheft"
         app:startIconDrawable="@drawable/ic_car_icon"
-        app:startIconTint="@color/purple_700"
+        app:startIconTint="@color/black"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -113,11 +115,11 @@
         android:paddingLeft="10dp"
         android:paddingTop="100dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/purple_700"
-        app:boxStrokeColor="@color/purple_700"
+        android:textColorHint="@color/black"
+        app:boxStrokeColor="@color/black"
         app:endIconDrawable="@drawable/ic_clear"
         app:endIconMode="clear_text"
-        app:endIconTint="@color/purple_700"
+        app:endIconTint="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/location"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -125,7 +127,7 @@
         app:layout_constraintTop_toBottomOf="@+id/carRegNumber"
         app:layout_constraintVertical_bias="0.358"
         app:startIconDrawable="@drawable/ic_id"
-        app:startIconTint="@color/purple_700"
+        app:startIconTint="@color/black"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -151,17 +153,17 @@
         android:paddingLeft="10dp"
         android:paddingTop="100dp"
         android:paddingRight="10dp"
-        android:textColorHint="@color/purple_700"
-        app:boxStrokeColor="@color/purple_700"
+        android:textColorHint="@color/black"
+        app:boxStrokeColor="@color/black"
         app:endIconDrawable="@drawable/ic_clear"
         app:endIconMode="clear_text"
-        app:endIconTint="@color/purple_700"
+        app:endIconTint="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/vehicleRegistrationNumber"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/licenseNumber"
         app:startIconDrawable="@drawable/ic_color_icon"
-        app:startIconTint="@color/purple_700"
+        app:startIconTint="@color/black"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -183,6 +185,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="60dp"
         android:text="Record"
+        app:backgroundTint="@color/dim_grey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

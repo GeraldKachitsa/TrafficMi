@@ -1,6 +1,7 @@
 package com.example.trafficmi;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ public class UpdateDriverRecords extends AppCompatActivity {
     private TextInputLayout driverLicenseNumber;
     private TextInputLayout driverAddress;
     private Button updateDriverRecordsBtn;
+    Toolbar my_toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,12 @@ public class UpdateDriverRecords extends AppCompatActivity {
         fullNameOfDriver = (TextInputLayout)findViewById(R.id.vehicleRegistrationNumber);
         driverLicenseNumber = (TextInputLayout)findViewById(R.id.licenseNumber);
         driverAddress = (TextInputLayout)findViewById(R.id.carRegNumber);
+
+
+        //  showing toolbar
+        my_toolbar = ( Toolbar)findViewById(R.id.myToolBar);
+        setSupportActionBar(my_toolbar);
+
         updateDriverRecordsBtn = (Button)findViewById(R.id.goToNextOffenceBtn);
         updateDriverRecordsBtn.setOnClickListener(new View.OnClickListener() {
             @Override

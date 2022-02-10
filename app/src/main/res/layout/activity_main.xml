@@ -6,32 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <ImageView
         android:id="@+id/ic_car"
-        android:layout_width="289dp"
-        android:layout_height="259dp"
-        android:layout_marginTop="164dp"
-        android:src="@drawable/ic_car_icon"
+        android:layout_width="236dp"
+        android:layout_height="159dp"
+        android:src="@drawable/triangle"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.326"
-        app:tint="@color/purple_700" />
+        app:layout_constraintVertical_bias="0.375" />
 
     <TextView
         android:id="@+id/appLabelTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="RoTraRe"
-        android:textColor="@color/purple_700"
+        android:fontFamily="serif-monospace"
+        android:text="RoTIRe"
+        android:textColor="@color/dim_grey"
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintHorizontal_bias="0.528"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.68" />
+        app:layout_constraintTop_toBottomOf="@+id/ic_car"
+        app:layout_constraintVertical_bias="0.278" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

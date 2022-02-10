@@ -1,8 +1,12 @@
 package com.example.trafficmi;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -14,6 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class UpdateVehicleRecords extends AppCompatActivity {
     private TextInputLayout vehicleRegNumber, carColor, carMake, carName;
     private Button updateVehicleRecordsBtn;
+    private Toolbar toolbar;
 
     //firebase database
 
@@ -25,6 +30,12 @@ public class UpdateVehicleRecords extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_vehicle_records);
+
+        //toolbar
+
+        toolbar = (Toolbar)findViewById(R.id.myToolBar);
+        setSupportActionBar(toolbar);
+
 
         vehicleRegNumber = (TextInputLayout) findViewById(R.id.vehicleRegistrationNumber);
         carColor = (TextInputLayout) findViewById(R.id.location);
@@ -41,6 +52,21 @@ public class UpdateVehicleRecords extends AppCompatActivity {
 
 
     }
+
+    @Override
+
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+//    public boolean onCreateOptionsMenu(Menu menu){
+//        MenuInflater inflater = getMenuInflater();
+//        inflater.inflate(R.menu.menu,menu);
+//        return super.onCreateOptionsMenu(menu);
+//
+//    }
+
 
     public void updateVehicleRecords() {
 
@@ -89,6 +115,7 @@ public class UpdateVehicleRecords extends AppCompatActivity {
             carColor.getEditText().setText("");
             carMake.getEditText().setText("");
             carName.getEditText().setText("");
+            startActivity(new Intent(this, ViewVehicleTheft.class));
 
 
         }
