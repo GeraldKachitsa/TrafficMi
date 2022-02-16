@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UpdateDriverRecords">
+    tools:context=".DriverOffence">
+    <include
+        layout="@layout/toolbar"/>
 
     <TextView
         android:id="@+id/textView"
@@ -21,7 +24,7 @@
         android:textColor="@color/dim_grey"
         android:textSize="25dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/vehicleRegistrationNumber"
+        app:layout_constraintBottom_toTopOf="@+id/vehicleRegNumber"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +32,7 @@
         tools:ignore="MissingConstraints" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/vehicleRegistrationNumber"
+        android:id="@+id/vehicleRegNumber"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="297dp"
         android:layout_height="72dp"
@@ -50,7 +53,7 @@
         app:endIconMode="clear_text"
         app:endIconTint="@color/dim_grey"
         app:flow_verticalBias="0.9"
-        app:layout_constraintBottom_toTopOf="@+id/licenseNumber"
+        app:layout_constraintBottom_toTopOf="@+id/carMake"
         app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintHorizontal_bias="0.71"
         app:layout_constraintStart_toStartOf="@+id/textView"
@@ -67,7 +70,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/licenseNumber"
+        android:id="@+id/carMake"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="297dp"
         android:layout_height="72dp"
@@ -87,10 +90,10 @@
         app:endIconDrawable="@drawable/ic_clear"
         app:endIconMode="clear_text"
         app:endIconTint="@color/dim_grey"
-        app:layout_constraintBottom_toTopOf="@+id/carRegNumber"
-        app:layout_constraintEnd_toEndOf="@+id/vehicleRegistrationNumber"
-        app:layout_constraintStart_toStartOf="@+id/vehicleRegistrationNumber"
-        app:layout_constraintTop_toBottomOf="@+id/vehicleRegistrationNumber"
+        app:layout_constraintBottom_toTopOf="@+id/carName"
+        app:layout_constraintEnd_toEndOf="@+id/vehicleRegNumber"
+        app:layout_constraintStart_toStartOf="@+id/vehicleRegNumber"
+        app:layout_constraintTop_toBottomOf="@+id/vehicleRegNumber"
         app:startIconDrawable="@drawable/ic_id"
         app:startIconTint="@color/dim_grey"
         tools:ignore="MissingConstraints">
@@ -103,7 +106,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/carRegNumber"
+        android:id="@+id/carName"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="297dp"
         android:layout_height="72dp"
@@ -124,9 +127,9 @@
         app:endIconMode="clear_text"
         app:endIconTint="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/goToNextOffenceBtn"
-        app:layout_constraintEnd_toEndOf="@+id/licenseNumber"
-        app:layout_constraintStart_toStartOf="@+id/licenseNumber"
-        app:layout_constraintTop_toBottomOf="@+id/licenseNumber"
+        app:layout_constraintEnd_toEndOf="@+id/carMake"
+        app:layout_constraintStart_toStartOf="@+id/carMake"
+        app:layout_constraintTop_toBottomOf="@+id/carMake"
         app:startIconDrawable="@drawable/ic_location"
         app:startIconTint="@color/dim_grey"
         tools:ignore="MissingConstraints">
@@ -157,8 +160,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.935"
-        app:layout_constraintStart_toStartOf="@+id/carRegNumber"
-        app:layout_constraintTop_toBottomOf="@+id/carRegNumber"
+        app:layout_constraintStart_toStartOf="@+id/carName"
+        app:layout_constraintTop_toBottomOf="@+id/carName"
         app:layout_constraintVertical_bias="0.988"
         tools:ignore="MissingConstraints" />
 
