@@ -2,11 +2,11 @@ package com.example.trafficmi;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -15,7 +15,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class UpdateVehicleRecords extends AppCompatActivity {
+public class AccidentScene extends AppCompatActivity {
     private TextInputLayout vehicleRegNumber, carColor, carMake, carName;
     private Button updateVehicleRecordsBtn;
     private Toolbar toolbar;
@@ -29,20 +29,23 @@ public class UpdateVehicleRecords extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_vehicle_records);
+        setContentView(R.layout.accident_scene);
 
         //toolbar
 
         toolbar = (Toolbar)findViewById(R.id.myToolBar);
+        toolbar.setTitle("Accident Scene");
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        vehicleRegNumber = (TextInputLayout) findViewById(R.id.vehicleRegistrationNumber);
-        carColor = (TextInputLayout) findViewById(R.id.location);
-        carMake= (TextInputLayout) findViewById(R.id.licenseNumber);
-        carName = (TextInputLayout) findViewById(R.id.carRegNumber);
+        vehicleRegNumber = (TextInputLayout) findViewById(R.id.vehicleRegNumber);
+        carColor = (TextInputLayout) findViewById(R.id.carColor);
+        carMake= (TextInputLayout) findViewById(R.id.carMake);
+        carName = (TextInputLayout) findViewById(R.id.carName);
 
-        updateVehicleRecordsBtn = (Button) findViewById(R.id.accidentSceneRecordsBtn);
+        updateVehicleRecordsBtn = (Button) findViewById(R.id.reportTheftBtn);
         updateVehicleRecordsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,9 +55,38 @@ public class UpdateVehicleRecords extends AppCompatActivity {
 
 
     }
+    @Override
+    public void onBackPressed(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(false);
+        builder.setMessage("Do you want to Exit?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // if yes,Exit
+                finish();
+            }
+        });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //if No, cancel and continue
+                dialog.cancel();
+
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+
+
+    public boolean onSupportNavigateUp(){
+        onBackPressed();
+        return true;
+    }
 
     @Override
-
 
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
@@ -74,7 +106,7 @@ public class UpdateVehicleRecords extends AppCompatActivity {
 
         root = FirebaseDatabase.getInstance();
         referenci = root.getReference();
-        referenci = root.getReference(  "UpdatedVehicleRecords");
+        referenci = root.getReference(  "AccidentSceneRecords");
 
 
         String vehicleRegistrationNumber = vehicleRegNumber.getEditText().getText().toString().trim();

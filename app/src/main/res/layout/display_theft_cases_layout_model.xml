@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:weightSum="100"
+    android:background="#F1F6F6"
+    android:orientation="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_weight="70"
+        android:layout_width="wrap_content"
+        android:padding="10dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/car_name_id"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Car name"
+            />
+
+        <TextView
+            android:layout_below="@+id/car_name_id"
+            android:id="@+id/car_reg_num_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="car name"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:layout_weight="30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/car_color_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Car color"
+            />
+    </RelativeLayout>
+</LinearLayout>

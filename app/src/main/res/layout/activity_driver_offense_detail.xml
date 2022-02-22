@@ -6,23 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".DriverOffenseDetail">
 
+    <include
+        layout="@layout/toolbar"/>
+
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="88dp"
         android:paddingTop="15dp"
-        android:text="Driver Offences"
         android:textColor="@color/dim_grey"
         android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.437"
+        app:layout_constraintHorizontal_bias="0.39"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
-
 
     <CheckBox
         android:id="@+id/checkBoxNoBelt"
@@ -115,7 +116,7 @@
         android:shadowColor="@color/black"
         android:text="over-loading"
         android:textColor="@color/dim_grey"
-        app:layout_constraintBottom_toTopOf="@+id/accidentSceneRecordsBtn"
+        app:layout_constraintBottom_toTopOf="@+id/reportTheftBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -142,7 +143,7 @@
         app:layout_constraintTop_toBottomOf="@+id/checkBoxOverSpeeding" />
 
     <Button
-        android:id="@+id/accidentSceneRecordsBtn"
+        android:id="@+id/reportTheftBtn"
         android:layout_width="382dp"
         android:layout_height="69dp"
 

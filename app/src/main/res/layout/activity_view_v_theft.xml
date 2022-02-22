@@ -4,24 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewVehicleTheft">
-
-    <include
-        android:id="@+id/too_id"
-        layout="@layout/toolbar"/>
-
-    <TextView
-        android:id="@+id/tvView"
-        android:layout_below="@+id/too_id"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:text="View"
-        android:textColor="@color/black"
-       />
+    tools:context=".ViewVTheft">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_below="@+id/tvView"
-        android:id="@+id/recycler_view_id"
+
+        android:id="@+id/recycler_view_id2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
