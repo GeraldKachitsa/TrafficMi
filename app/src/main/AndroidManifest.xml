@@ -11,10 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".ViewVTheft"></activity>
         <activity android:name=".ChoiceOfWorkMenu" />
         <activity android:name=".Districts" />
-        <activity android:name=".ViewVehicleTheft" />
+        <activity android:name=".Views.ViewVehicleTheft" />
         <activity android:name=".DriverOffenseDetail" />
         <activity android:name=".UpdatedCarRecords" />
         <activity android:name=".ReportVehicleTheft" />

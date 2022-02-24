@@ -1,4 +1,4 @@
-package com.example.trafficmi;
+package com.example.trafficmi.Model;
 
 import com.google.android.material.textfield.TextInputLayout;
 

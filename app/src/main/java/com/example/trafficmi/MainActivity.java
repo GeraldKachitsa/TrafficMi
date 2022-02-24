@@ -12,14 +12,15 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toolbar;
+
+import com.example.trafficmi.Views.ViewVehicleTheft;
 
 public class MainActivity extends AppCompatActivity {
     Button chiefTrafficOfficerLogInBtn;
     Animation top_animation, bottom_animation;
     ImageView ic_car;
     TextView appLabelTxt;
-    private static int SPLASH_SCREEN = 7000;
+    private static int SPLASH_SCREEN = 2000;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(MainActivity.this, LogIn.class);
+                Intent intent = new Intent(MainActivity.this, ChoiceOfWorkMenu.class);
                 startActivity(intent);
                 finish();
             }
