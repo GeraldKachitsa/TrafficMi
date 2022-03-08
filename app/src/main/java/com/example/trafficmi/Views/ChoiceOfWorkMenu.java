@@ -1,7 +1,6 @@
 package com.example.trafficmi;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,13 +9,13 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.trafficmi.Views.ViewVehicleTheft;
+import com.example.trafficmi.Views.DriverOffence;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ChoiceOfWorkMenu extends AppCompatActivity {
     private Button driverOffenceBtn2;
     private Button accidentSceneBtn;
-    private Button reportVehicleTheftBtn;
+    private FloatingActionButton reportVehicleTheftBtn, reportDriverOffenceBtn,reportAccidentScene, viewReportstBtn;
 
     FloatingActionButton fab_control;
     @Override
@@ -29,12 +28,24 @@ public class ChoiceOfWorkMenu extends AppCompatActivity {
 
         accidentSceneBtn= (Button) findViewById(R.id.accidentSceneBtn);
 
-        reportVehicleTheftBtn = (Button) findViewById(R.id.reportVehicleTheftBtn);
-        fab_control = findViewById(R.id.fab_control);
-        fab_control.setOnClickListener(new View.OnClickListener() {
+//        reportVehicleTheftBtn = findViewById(R.id.reportVehicleTheftBtn);
+
+        viewReportstBtn = findViewById(R.id.fab_control);
+        reportAccidentScene = findViewById(R.id.fab_control_as);
+        reportDriverOffenceBtn = findViewById(R.id.fab_control_do);
+        reportVehicleTheftBtn = findViewById(R.id.fab_control_vt);
+
+        reportAccidentScene.setVisibility(View.INVISIBLE);
+        reportVehicleTheftBtn.setVisibility(View.INVISIBLE);
+        reportDriverOffenceBtn.setVisibility(View.INVISIBLE);
+
+        viewReportstBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), ViewVehicleTheft.class));
+                reportAccidentScene.setVisibility(View.VISIBLE);
+                reportVehicleTheftBtn.setVisibility(View.VISIBLE);
+                reportDriverOffenceBtn.setVisibility(View.VISIBLE);
+//                startActivity(new Intent(getApplicationContext(), ViewVehicleTheft.class));
             }
         });
 //        driverOffenceBtn2.setOnClickListener(new View.OnClickListener() {
@@ -53,12 +64,12 @@ public class ChoiceOfWorkMenu extends AppCompatActivity {
 //            }
 //        });
 
-        reportVehicleTheftBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToReportVehicleTheft();
-            }
-        });
+//        viewReportstBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                goToReportVehicleTheft();
+//            }
+//        });
 
     }
 

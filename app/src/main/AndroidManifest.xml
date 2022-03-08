@@ -12,13 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".ChoiceOfWorkMenu" />
-        <activity android:name=".Districts" />
         <activity android:name=".Views.ViewVehicleTheft" />
-        <activity android:name=".DriverOffenseDetail" />
+        <activity android:name=".Views.DriverOffenseDetail" />
         <activity android:name=".UpdatedCarRecords" />
         <activity android:name=".ReportVehicleTheft" />
         <activity android:name=".AccidentScene" />
-        <activity android:name=".DriverOffence" />
+        <activity android:name=".Views.DriverOffence" />
         <activity android:name=".LogIn" />
         <activity android:name=".MainActivity">
             <intent-filter>

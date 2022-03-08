@@ -1,4 +1,4 @@
-package com.example.trafficmi;
+package com.example.trafficmi.Views;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -6,13 +6,13 @@ import androidx.appcompat.widget.Toolbar;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.trafficmi.R;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -123,7 +123,7 @@ public class DriverOffence extends AppCompatActivity {
         }else{
 
             //Writing to database
-            DriverOffenceRecords driverOffenceRecords = new DriverOffenceRecords(fullNameDriver, driverLicense, locationOfOffence);
+            com.example.trafficmi.DriverOffenceRecords driverOffenceRecords = new com.example.trafficmi.DriverOffenceRecords(fullNameDriver, driverLicense, locationOfOffence);
             referenci.child(driverLicense).setValue(driverOffenceRecords);
             driverOffenceLocation.setErrorEnabled(false);
             Toast.makeText(getApplicationContext(),
@@ -133,7 +133,7 @@ public class DriverOffence extends AppCompatActivity {
             fullNameOfDriver.getEditText().setText("");
             driverLicenseNumber.getEditText().setText("");
             driverOffenceLocation.getEditText().setText("");
-            startActivity( new Intent(this,DriverOffenseDetail.class));
+            startActivity( new Intent(this, DriverOffenseDetail.class));
 
         }
     }

@@ -52,7 +52,6 @@ public class VehicleTheftAdapter extends RecyclerView.Adapter<VehicleTheftAdapte
             carname = itemView.findViewById(R.id.car_name_id);
             car_reg = itemView.findViewById(R.id.car_reg_num_id);
             car_color = itemView.findViewById(R.id.car_color_id);
-
         }
     }
 }
