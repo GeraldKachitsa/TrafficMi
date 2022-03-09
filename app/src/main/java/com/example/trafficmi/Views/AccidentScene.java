@@ -1,4 +1,4 @@
-package com.example.trafficmi;
+package com.example.trafficmi.Views;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.trafficmi.Model.UpdatedVehicleRecords;
+import com.example.trafficmi.R;
 import com.example.trafficmi.Views.ViewVehicleTheft;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
@@ -139,8 +140,6 @@ public class AccidentScene extends AppCompatActivity {
 
             UpdatedVehicleRecords updatedVehicleRecords = new UpdatedVehicleRecords(nameOfCar, makeOfCar, colorOfCar, vehicleRegistrationNumber);
             referenci.child(vehicleRegistrationNumber).setValue(updatedVehicleRecords);
-
-
             Toast.makeText(getApplicationContext(),
                     "Vehicle Records Successfully updated",
                     Toast.LENGTH_LONG)

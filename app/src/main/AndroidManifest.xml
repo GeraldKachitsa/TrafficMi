@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.trafficmi">
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-feature android:name="android.hardware.type.watch" />
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -11,12 +15,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+<!--        <uses-library-->
+<!--            android:name="com.google.android.wearable"-->
+<!--            android:required="true" />-->
+
+        <!--
+               Set to true if your app is Standalone, that is, it does not require the handheld
+               app to run.
+        -->
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="true" />
+
+        <activity
+            android:name=".Views.AccidentView"
+            android:label="@string/title_activity_accident_view">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".ChoiceOfWorkMenu" />
         <activity android:name=".Views.ViewVehicleTheft" />
         <activity android:name=".Views.DriverOffenseDetail" />
         <activity android:name=".UpdatedCarRecords" />
         <activity android:name=".ReportVehicleTheft" />
-        <activity android:name=".AccidentScene" />
+        <activity android:name=".Views.AccidentScene" />
         <activity android:name=".Views.DriverOffence" />
         <activity android:name=".LogIn" />
         <activity android:name=".MainActivity">

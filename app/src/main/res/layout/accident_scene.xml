@@ -8,7 +8,7 @@
     android:padding="8dp"
     android:scrollbars="vertical"
     android:scrollbarStyle="outsideOverlay"
-    tools:context=".AccidentScene">
+    tools:context=".Views.AccidentScene">
 
     <include
         layout="@layout/toolbar"/>

@@ -1,13 +1,15 @@
 package com.example.trafficmi.Views;
 
+import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
-
+import com.example.trafficmi.AdapterPackage.AccidentAdapter;
 import com.example.trafficmi.AdapterPackage.DriverOffinceAdapter;
+import com.example.trafficmi.Model.AccidentSceneModel;
 import com.example.trafficmi.Model.DriversOffence;
 import com.example.trafficmi.R;
 import com.google.firebase.database.DataSnapshot;
@@ -19,26 +21,28 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class DriverOffenseDetail extends AppCompatActivity {
+public class AccidentView extends AppCompatActivity {
+
+
 
     RecyclerView recyclerView;
     // Firebase database
     FirebaseDatabase root = FirebaseDatabase.getInstance();
-    DatabaseReference reference = root.getReference().child("DriverOffences");
+    DatabaseReference reference = root.getReference().child("AccidentSceneRecords");
 
-    DriverOffinceAdapter driverOffinceAdapter;
-    ArrayList<DriversOffence> dataValues;
+    AccidentAdapter accidentAdapter;
+    ArrayList<AccidentSceneModel> dataValues;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_driver_offense_detail);
-        dataValues = new ArrayList<DriversOffence>();
+        setContentView(R.layout.activity_accident_view);
+        dataValues = new ArrayList<AccidentSceneModel>();
 
-        recyclerView = findViewById(R.id.recycler_view);
-        driverOffinceAdapter = new DriverOffinceAdapter(this, dataValues);
+        recyclerView = findViewById(R.id.rec_accident);
+        accidentAdapter = new AccidentAdapter(this, dataValues);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(driverOffinceAdapter);
+        recyclerView.setAdapter(accidentAdapter);
         // Firebase initialisations
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -54,7 +58,7 @@ public class DriverOffenseDetail extends AppCompatActivity {
                         try{
                             HashMap<String, Object> userData = (HashMap<String, Object>) data;
 //
-                            dataValues.add(new DriversOffence(userData.get("driverName").toString(), userData.get("driverOffenceLocation").toString(), userData.get("licenseNumber").toString()));
+                            dataValues.add(new AccidentSceneModel(userData.get("vehicleRegNumber").toString(), userData.get("vehicleColor").toString(), userData.get("nameOfVehicle").toString()));
 //
                         }catch (ClassCastException cce){
 
@@ -72,7 +76,7 @@ public class DriverOffenseDetail extends AppCompatActivity {
                         }
 
                     }
-                    driverOffinceAdapter.notifyDataSetChanged();
+                    accidentAdapter.notifyDataSetChanged();
 
                 }
             }
