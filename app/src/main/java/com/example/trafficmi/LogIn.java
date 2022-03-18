@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.trafficmi.Views.ChoiceOfWorkMenu;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 
 public class LogIn extends AppCompatActivity {
     private Button chiefTrafficOfficerSignInBtn;

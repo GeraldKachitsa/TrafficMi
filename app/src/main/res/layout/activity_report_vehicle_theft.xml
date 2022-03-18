@@ -8,14 +8,35 @@
     android:scrollbarStyle="outsideOverlay"
     tools:context=".ReportVehicleTheft">
 
-    <include
-        android:id="@+id/include2"
-        layout="@layout/toolbar" />
+<!--    <include-->
+<!--        android:id="@+id/include2"-->
+<!--        layout="@layout/toolbar" />-->
 
+    <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:id="@+id/vehicleTheftToolBar"
+        app:popupTheme="@style/ThemeOverlay.PopupTheme."
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        android:layout_height="?android:attr/actionBarSize"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@color/dim_grey"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="VEHICLE THEFT"
+                />
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
     <RelativeLayout
         android:padding="30dp"
         android:layout_marginTop="30dp"
-        android:layout_below="@+id/include2"
+        android:layout_below="@+id/vehicleTheftToolBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <com.google.android.material.textfield.TextInputLayout
@@ -33,7 +54,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/vehicleRegNumber"
-            app:startIconDrawable="@drawable/ic_book"
+            app:startIconDrawable="@drawable/ic_account"
             app:startIconTint="@color/dim_grey"
             tools:ignore="MissingConstraints"
             >
@@ -42,7 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/blue_book"
-                android:hint="Blue book"
+                android:hint="Car owner"
                 android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -115,7 +136,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Car make"
+                android:hint="Year of make"
                 android:id="@+id/car_make"
                 android:inputType="text" />
 

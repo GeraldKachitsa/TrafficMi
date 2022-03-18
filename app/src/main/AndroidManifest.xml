@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.trafficmi">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <uses-feature android:name="android.hardware.type.watch" />
 
@@ -15,10 +17,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-<!--        <uses-library-->
-<!--            android:name="com.google.android.wearable"-->
-<!--            android:required="true" />-->
-
+        <activity android:name=".HelpCenter"></activity>
+        <activity android:name=".RoadTrafficRepo"></activity>
+        <!-- <uses-library -->
+        <!-- android:name="com.google.android.wearable" -->
+        <!-- android:required="true" /> -->
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.
@@ -36,13 +39,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ChoiceOfWorkMenu" />
-        <activity android:name=".Views.ViewVehicleTheft" />
-        <activity android:name=".Views.DriverOffenseDetail" />
+        <activity android:name=".Views.ChoiceOfWorkMenu" />
+        <activity
+            android:name=".Views.ViewVehicleTheft"
+            android:parentActivityName=".ReportVehicleTheft" />
+        <activity
+            android:name=".Views.DriverOffenseDetail"
+            android:parentActivityName=".Views.DriverOffence" />
         <activity android:name=".UpdatedCarRecords" />
-        <activity android:name=".ReportVehicleTheft" />
-        <activity android:name=".Views.AccidentScene" />
-        <activity android:name=".Views.DriverOffence" />
+        <activity
+            android:name=".ReportVehicleTheft"
+            android:parentActivityName=".Views.ChoiceOfWorkMenu" />
+        <activity
+            android:name=".Views.AccidentScene"
+            android:parentActivityName=".Views.ChoiceOfWorkMenu" />
+        <activity
+            android:name=".Views.DriverOffence"
+            android:parentActivityName=".Views.ChoiceOfWorkMenu" />
         <activity android:name=".LogIn" />
         <activity android:name=".MainActivity">
             <intent-filter>

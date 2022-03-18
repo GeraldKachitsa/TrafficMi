@@ -1,11 +1,11 @@
 package com.example.trafficmi.Model;
 
-public class DriversOffence {
+public class DriversOffenceModel {
     private String disPayName;
     private String driverOffenceLocation;
     private String lisenceNumber;
 
-    public DriversOffence(String disPayName, String driverOffenceLocation, String lisenceNumber) {
+    public DriversOffenceModel(String disPayName, String driverOffenceLocation, String lisenceNumber) {
         this.disPayName = disPayName;
         this.driverOffenceLocation = driverOffenceLocation;
         this.lisenceNumber = lisenceNumber;

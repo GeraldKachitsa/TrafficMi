@@ -7,10 +7,14 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.trafficmi.HelpCenter;
+import com.example.trafficmi.LogIn;
 import com.example.trafficmi.Model.UpdatedVehicleRecords;
 import com.example.trafficmi.R;
 import com.example.trafficmi.Views.ViewVehicleTheft;
@@ -21,7 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class AccidentScene extends AppCompatActivity {
     private TextInputLayout vehicleRegNumber, carColor, carMake, carName;
     private Button updateVehicleRecordsBtn;
-    private Toolbar toolbar;
+    private Toolbar accidentSceneToolBar;
 
     //firebase database
 
@@ -34,19 +38,19 @@ public class AccidentScene extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.accident_scene);
 
-        //toolbar
-
-        toolbar = (Toolbar)findViewById(R.id.myToolBar);
-        toolbar.setTitle("Accident Scene");
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
         vehicleRegNumber = (TextInputLayout) findViewById(R.id.vehicleRegNumber);
         carColor = (TextInputLayout) findViewById(R.id.carColor);
         carMake= (TextInputLayout) findViewById(R.id.carMake);
         carName = (TextInputLayout) findViewById(R.id.carName);
+
+        //Tool bar
+
+        accidentSceneToolBar = (Toolbar) findViewById(R.id.accidentSceneToolBar);
+
+        //accidentSceneToolBar.setTitle("VEHICLE THEFT");
+        setSupportActionBar(accidentSceneToolBar);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         updateVehicleRecordsBtn = (Button) findViewById(R.id.reportTheftBtn);
         updateVehicleRecordsBtn.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +62,33 @@ public class AccidentScene extends AppCompatActivity {
 
 
     }
+
+    //menu
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+// Handling menu items events
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.log_out:
+                startActivity(new Intent(this, LogIn.class));
+                return true;
+            case R.id.help:
+                startActivity(new Intent(this, HelpCenter.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    //Handling back button when pressed
     @Override
     public void onBackPressed(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -89,12 +120,12 @@ public class AccidentScene extends AppCompatActivity {
         return true;
     }
 
-    @Override
-
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
+//    @Override
+//
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.menu, menu);
+//        return true;
+//    }
 //    public boolean onCreateOptionsMenu(Menu menu){
 //        MenuInflater inflater = getMenuInflater();
 //        inflater.inflate(R.menu.menu,menu);
@@ -110,6 +141,10 @@ public class AccidentScene extends AppCompatActivity {
         root = FirebaseDatabase.getInstance();
         referenci = root.getReference();
         referenci = root.getReference(  "AccidentSceneRecords");
+
+
+        //offline capability
+        referenci.keepSynced(true);
 
 
         String vehicleRegistrationNumber = vehicleRegNumber.getEditText().getText().toString().trim();
@@ -148,7 +183,7 @@ public class AccidentScene extends AppCompatActivity {
             carColor.getEditText().setText("");
             carMake.getEditText().setText("");
             carName.getEditText().setText("");
-            startActivity(new Intent(this, ViewVehicleTheft.class));
+            startActivity(new Intent(this, AccidentView.class));
 
 
         }

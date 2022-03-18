@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,177 +8,153 @@
     android:padding="8dp"
     android:scrollbars="vertical"
     android:scrollbarStyle="outsideOverlay"
+    android:orientation="vertical"
     tools:context=".Views.AccidentScene">
 
-    <include
-        layout="@layout/toolbar"/>
+<!--    <include-->
+<!--        android:id="@+id/toolb"-->
+<!--        layout="@layout/accident_scene_toolbar"/>-->
 
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/vehicleRegNumber"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/accidentSceneToolBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="1dp"
-        android:hint="Vehicle Registration Number"
-        android:padding="10dp"
-        android:paddingLeft="10dp"
-        android:paddingTop="100dp"
-        android:paddingRight="10dp"
-        android:textColorHint="@color/dim_grey"
-        app:boxStrokeColor="@color/dim_grey"
-        app:endIconDrawable="@drawable/ic_clear"
-        app:endIconMode="clear_text"
-        app:endIconTint="@color/dim_grey"
-        app:layout_constraintBottom_toTopOf="@+id/reportTheftBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/carColor"
-        app:layout_constraintTop_toBottomOf="@+id/carColor"
-        app:startIconDrawable="@drawable/ic_account"
-        app:startIconTint="@color/black"
-        tools:ignore="MissingConstraints">
+        android:background="@color/dim_grey"
+        app:popupTheme="@style/ThemeOverlay.PopupTheme.">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text" />
+            android:layout_height="wrap_content">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="ACCIDENT SCENE" />
+        </RelativeLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/carName"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    </androidx.appcompat.widget.Toolbar>
+
+    <RelativeLayout
+        android:padding="20dp"
+        android:layout_below="@id/accidentSceneToolBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="1dp"
-        android:hint="Car Name"
-        android:padding="10dp"
-        android:paddingLeft="10dp"
-        android:paddingTop="100dp"
-        android:paddingRight="10dp"
-        android:textColorHint="@color/black"
-        app:boxStrokeColor="@color/black"
-        app:endIconDrawable="@drawable/ic_clear"
-        app:endIconMode="clear_text"
-        app:endIconTint="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/carMake"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:startIconDrawable="@drawable/ic_car_icon"
-        app:startIconTint="@color/black"
-        tools:ignore="MissingConstraints">
+        android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputLayout
 
-        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/vehicleRegNumber"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+            android:hint="Vehicle Registration Number"
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/carMake"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="1dp"
-        android:hint="Make"
-        android:padding="10dp"
-        android:paddingLeft="10dp"
-        android:paddingTop="100dp"
-        android:paddingRight="10dp"
-        android:textColorHint="@color/black"
-        app:boxStrokeColor="@color/black"
-        app:endIconDrawable="@drawable/ic_clear"
-        app:endIconMode="clear_text"
-        app:endIconTint="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/carColor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/carName"
-        app:layout_constraintTop_toBottomOf="@+id/carName"
-        app:layout_constraintVertical_bias="0.358"
-        app:startIconDrawable="@drawable/ic_id"
-        app:startIconTint="@color/black"
-        tools:ignore="MissingConstraints">
+            android:textColorHint="@color/dim_grey"
+            app:boxStrokeColor="@color/dim_grey"
+            app:endIconDrawable="@drawable/ic_clear"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/dim_grey"
 
-        <com.google.android.material.textfield.TextInputEditText
+            app:startIconDrawable="@drawable/ic_account"
+            app:startIconTint="@color/black"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_below="@id/vehicleRegNumber"
+            android:id="@+id/carName"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+            android:hint="Car Name"
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/carColor"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="1dp"
-        android:hint="Color"
-        android:padding="10dp"
-        android:paddingLeft="10dp"
-        android:paddingTop="100dp"
-        android:paddingRight="10dp"
-        android:textColorHint="@color/black"
-        app:boxStrokeColor="@color/black"
-        app:endIconDrawable="@drawable/ic_clear"
-        app:endIconMode="clear_text"
-        app:endIconTint="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/vehicleRegNumber"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carMake"
-        app:startIconDrawable="@drawable/ic_color_icon"
-        app:startIconTint="@color/black"
-        tools:ignore="MissingConstraints">
+            android:textColorHint="@color/black"
+            app:boxStrokeColor="@color/black"
+            app:endIconDrawable="@drawable/ic_clear"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/black"
 
-        <com.google.android.material.textfield.TextInputEditText
+            app:startIconDrawable="@drawable/ic_car_icon"
+            app:startIconTint="@color/black"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/carMake"
+            android:layout_below="@id/carName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+            android:hint="Year of Make"
 
-    <Button
-        android:id="@+id/reportTheftBtn"
-        android:layout_width="311dp"
-        android:layout_height="61dp"
+            android:textColorHint="@color/black"
+            app:boxStrokeColor="@color/black"
+            app:endIconDrawable="@drawable/ic_clear"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/black"
 
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="60dp"
-        android:text="Record"
-        app:backgroundTint="@color/dim_grey"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vehicleRegNumber"
-        tools:ignore="MissingConstraints" />
+            app:startIconDrawable="@drawable/ic_id"
+            app:startIconTint="@color/black"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/carColor"
+            android:layout_below="@id/carMake"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:hint="Color"
+
+            android:textColorHint="@color/black"
+            app:boxStrokeColor="@color/black"
+            app:endIconDrawable="@drawable/ic_clear"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/black"
+
+            app:startIconDrawable="@drawable/ic_color_icon"
+            app:startIconTint="@color/black"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:layout_below="@id/carColor"
+            android:id="@+id/reportTheftBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+
+            android:text="Report"
+            android:backgroundTint="@color/dim_grey"
+            tools:ignore="MissingConstraints" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+
+
+</RelativeLayout>

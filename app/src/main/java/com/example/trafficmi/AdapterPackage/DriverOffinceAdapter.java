@@ -9,16 +9,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.trafficmi.Model.DriversOffence;
+import com.example.trafficmi.Model.DriversOffenceModel;
 import com.example.trafficmi.R;
 
 import java.util.ArrayList;
 
 public class DriverOffinceAdapter extends RecyclerView.Adapter<DriverOffinceAdapter.ViewHolder> {
-    ArrayList<DriversOffence> data;
+    ArrayList<DriversOffenceModel> data;
     Context context;
 
-    public DriverOffinceAdapter(Context context, ArrayList<DriversOffence> data ) {
+    public DriverOffinceAdapter(Context context, ArrayList<DriversOffenceModel> data ) {
         this.data = data;
         this.context = context;
     }
@@ -32,7 +32,7 @@ public class DriverOffinceAdapter extends RecyclerView.Adapter<DriverOffinceAdap
 
     @Override
     public void onBindViewHolder(@NonNull DriverOffinceAdapter.ViewHolder holder, int position) {
-        DriversOffence accidentScene= data.get(position);
+        DriversOffenceModel accidentScene= data.get(position);
         holder.disPayName.setText(accidentScene.getDisPayName().toString());
         holder.driverOffenceLocation.setText(accidentScene.getDriverOffenceLocation().toString());
         holder.lisenceNumber.setText(accidentScene.getLisenceNumber().toString());

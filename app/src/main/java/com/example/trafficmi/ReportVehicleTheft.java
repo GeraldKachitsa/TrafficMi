@@ -4,22 +4,26 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.trafficmi.Model.VehicleTheftReport;
-import com.example.trafficmi.Views.ViewVehicleTheft;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class ReportVehicleTheft extends AppCompatActivity  {
+
+    //toolBar
+    Toolbar vehicleTheftToolBar;
 
     TextInputEditText carName;
     TextInputEditText carMake;
@@ -27,8 +31,10 @@ public class ReportVehicleTheft extends AppCompatActivity  {
     TextInputEditText vehicleRegNumber;
     TextInputEditText vehicle_blue_book;
     Button reportTheftBtn;
+    Button searchBtn;
+    RecyclerView recyclerView;
 
-    //ToolBar
+
 
     //FirebaseDatabase
     FirebaseDatabase root;
@@ -47,18 +53,24 @@ public class ReportVehicleTheft extends AppCompatActivity  {
         vehicle_blue_book = (TextInputEditText) findViewById(R.id.blue_book);
         reportTheftBtn = (Button) findViewById(R.id.reportTheftBtn);
 
-//        //Tool bar
-//
-//        toolbar = (Toolbar) findViewById(R.id.myToolBar);
-//
-////        toolbar.setTitle("VEHICLE THEFT");
-//        setSupportActionBar(toolbar);
-//        getSupportActionBar().setDisplayShowHomeEnabled(true);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        searchBtn = findViewById(R.id.action_search);
+        recyclerView = findViewById(R.id.recycler_view_id);
+
+
+
+        //Tool bar
+
+        vehicleTheftToolBar = (Toolbar) findViewById(R.id.vehicleTheftToolBar);
+
+       //vehicleTheftToolBar.setTitle("VEHICLE THEFT");
+        setSupportActionBar(vehicleTheftToolBar);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         reportTheftBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 goToViewVehicleTheft();
             }
         });
@@ -68,9 +80,27 @@ public class ReportVehicleTheft extends AppCompatActivity  {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
+        inflater.inflate(R.menu.vehicle_theft_menu, menu);
         return true;
     }
+
+    // Handling menu items events
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.log_out:
+                startActivity(new Intent(this, LogIn.class));
+                return true;
+            case R.id.help:
+                startActivity(new Intent(this, HelpCenter.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     @Override
     public void onBackPressed(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);

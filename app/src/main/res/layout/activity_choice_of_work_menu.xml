@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChoiceOfWorkMenu">
+    tools:context=".Views.ChoiceOfWorkMenu">
 
     <include
         android:id="@+id/include"
@@ -58,13 +58,16 @@
             tools:ignore="MissingConstraints" />
     </RelativeLayout>
 
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_control"
+        android:id="@+id/accident_scene_fab_control"
         android:layout_width="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_margin="20dp"
-        android:src="@drawable/ic_add"
+        android:textColor="@color/white"
+        android:text="View"
+        android:src="@drawable/ic_baseline_view_module_24"
         android:backgroundTint="@color/dim_grey"
         android:layout_height="wrap_content"/>
 
@@ -81,13 +84,7 @@
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/dim_grey"
         android:src="@drawable/ic_add" >
-        <TextView android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="View"
-            android:elevation="6dp"
-            android:textSize="18dp"
-            android:textColor="#fff"
-            app:layout_anchorGravity="center"/>
+
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -96,7 +93,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_above="@+id/fab_control"
+        android:layout_above="@+id/accident_scene_fab_control"
         android:layout_alignParentRight="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
@@ -107,11 +104,9 @@
         android:src="@drawable/ic_add" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-
         android:id="@+id/fab_control_as"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_above="@+id/fab_control_do"
         android:layout_alignParentRight="true"
         android:layout_marginStart="20dp"

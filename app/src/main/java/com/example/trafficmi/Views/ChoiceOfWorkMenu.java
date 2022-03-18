@@ -1,4 +1,4 @@
-package com.example.trafficmi;
+package com.example.trafficmi.Views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,16 +9,17 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.trafficmi.Views.AccidentScene;
-import com.example.trafficmi.Views.DriverOffence;
+import com.example.trafficmi.R;
+import com.example.trafficmi.ReportVehicleTheft;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ChoiceOfWorkMenu extends AppCompatActivity {
-    private Button driverOffenceBtn2;
-    private Button accidentSceneBtn;
-    private FloatingActionButton reportVehicleTheftBtn, reportDriverOffenceBtn,reportAccidentScene, viewReportstBtn;
+    private Button driverOffenceBtn2, accidentSceneBtn, viewVehicleTheftBtn;
+
+    private FloatingActionButton reportVehicleTheftBtn, reportDriverOffenceBtn,reportAccidentScene, viewReportstBtn2;
 
     FloatingActionButton fab_control;
+    boolean flag = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,9 +30,9 @@ public class ChoiceOfWorkMenu extends AppCompatActivity {
 
         accidentSceneBtn= (Button) findViewById(R.id.accidentSceneBtn);
 
-//        reportVehicleTheftBtn = findViewById(R.id.reportVehicleTheftBtn);
+        viewVehicleTheftBtn = findViewById(R.id.reportVehicleTheftBtn);
 
-        viewReportstBtn = findViewById(R.id.fab_control);
+        viewReportstBtn2 = findViewById(R.id.accident_scene_fab_control);
         reportAccidentScene = findViewById(R.id.fab_control_as);
         reportDriverOffenceBtn = findViewById(R.id.fab_control_do);
         reportVehicleTheftBtn = findViewById(R.id.fab_control_vt);
@@ -39,38 +40,75 @@ public class ChoiceOfWorkMenu extends AppCompatActivity {
         reportAccidentScene.setVisibility(View.INVISIBLE);
         reportVehicleTheftBtn.setVisibility(View.INVISIBLE);
         reportDriverOffenceBtn.setVisibility(View.INVISIBLE);
-
-        viewReportstBtn.setOnClickListener(new View.OnClickListener() {
+//
+        viewReportstBtn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                reportAccidentScene.setVisibility(View.VISIBLE);
-                reportVehicleTheftBtn.setVisibility(View.VISIBLE);
-                reportDriverOffenceBtn.setVisibility(View.VISIBLE);
-//                startActivity(new Intent(getApplicationContext(), ViewVehicleTheft.class));
+                if (flag){
+                    reportAccidentScene.show();
+                    reportVehicleTheftBtn.show();
+                    reportDriverOffenceBtn.show();
+                    flag = false;
+
+                }else {
+                    flag = true;
+                    reportAccidentScene.hide();
+                    reportVehicleTheftBtn.hide();
+                    reportDriverOffenceBtn.hide();
+                }
+
             }
         });
-//        driverOffenceBtn2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                goToUpdateDriverRecords();
-//            }
-//        });
+
+        reportVehicleTheftBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                    startActivity(new Intent(ChoiceOfWorkMenu.this, ViewVehicleTheft.class));
+
+            }
+        });
+
+        reportDriverOffenceBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                    startActivity(new Intent(ChoiceOfWorkMenu.this, DriverOffenseDetail.class));
+
+            }
+        });
+
+        reportAccidentScene.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                    startActivity(new Intent(ChoiceOfWorkMenu.this, AccidentView.class));
+
+            }
+        });
+
+        driverOffenceBtn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToUpdateDriverRecords();
+            }
+        });
 
 
 
-//        accidentSceneBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                goToUpdateVehicleRecords();
-//            }
-//        });
+        accidentSceneBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToUpdateVehicleRecords();
+            }
+        });
 
-//        viewReportstBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                goToReportVehicleTheft();
-//            }
-//        });
+        viewVehicleTheftBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToReportVehicleTheft();
+            }
+        });
 
     }
 

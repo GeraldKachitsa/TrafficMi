@@ -1,4 +1,4 @@
-package com.example.trafficmi;
+package com.example.trafficmi.Views;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
