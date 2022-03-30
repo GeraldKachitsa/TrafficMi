@@ -18,6 +18,7 @@ import com.example.trafficmi.LogIn;
 import com.example.trafficmi.Model.UpdatedVehicleRecords;
 import com.example.trafficmi.R;
 import com.example.trafficmi.Views.ViewVehicleTheft;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -26,7 +27,6 @@ public class AccidentScene extends AppCompatActivity {
     private TextInputLayout vehicleRegNumber, carColor, carMake, carName;
     private Button updateVehicleRecordsBtn;
     private Toolbar accidentSceneToolBar;
-
     //firebase database
 
     FirebaseDatabase root;
@@ -42,7 +42,6 @@ public class AccidentScene extends AppCompatActivity {
         carColor = (TextInputLayout) findViewById(R.id.carColor);
         carMake= (TextInputLayout) findViewById(R.id.carMake);
         carName = (TextInputLayout) findViewById(R.id.carName);
-
         //Tool bar
 
         accidentSceneToolBar = (Toolbar) findViewById(R.id.accidentSceneToolBar);

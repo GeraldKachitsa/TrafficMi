@@ -1,17 +1,23 @@
 package com.example.trafficmi.AdapterPackage;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.trafficmi.Model.AccidentSceneModel;
 import com.example.trafficmi.R;
+import com.example.trafficmi.Views.ViewVehicleTheftDetails;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class AccidentAdapter extends RecyclerView.Adapter<AccidentAdapter.ViewHolder> {
@@ -37,12 +43,25 @@ public class AccidentAdapter extends RecyclerView.Adapter<AccidentAdapter.ViewHo
         holder.name.setText(accidentSceneModel.getName().toString());
         holder.regnum.setText(accidentSceneModel.getRegNum().toString());
         holder.color.setText(accidentSceneModel.getColor().toString());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ViewVehicleTheftDetails.class);
+                intent.putExtra("carRegnum", accidentSceneModel.getRegNum().toString());
+                context.startActivity(intent);
+            }
+        });
 
     }
 
     @Override
     public int getItemCount() {
         return accidentSceneModels.size();
+    }
+
+    public void filterList(ArrayList<AccidentSceneModel> models){
+        accidentSceneModels = models;
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

@@ -2,6 +2,8 @@ package com.example.trafficmi.Views;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -14,6 +16,7 @@ import com.example.trafficmi.Model.AccidentSceneModel;
 import com.example.trafficmi.R;
 import com.example.trafficmi.ReportVehicleTheft;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,12 +28,10 @@ import java.util.HashMap;
 
 public class AccidentView extends AppCompatActivity {
 
-
     //Floating button initialization
     private FloatingActionButton accident_scene_fab_control;
 
-
-
+    TextInputEditText search_id;
     RecyclerView recyclerView;
     // Firebase database
     FirebaseDatabase root = FirebaseDatabase.getInstance();
@@ -50,6 +51,7 @@ public class AccidentView extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(accidentAdapter);
 
+        search_id = (TextInputEditText) findViewById(R.id.search_field_id);
 
         //driver_offence_fab_control
         accident_scene_fab_control= findViewById(R.id.accident_scene_fab_control);
@@ -105,5 +107,35 @@ public class AccidentView extends AppCompatActivity {
 
             }
         });
+
+        search_id.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                filtered(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
     }
+
+    private void filtered(String text) {
+        ArrayList<AccidentSceneModel> modelArrayListFiltered = new ArrayList<>();
+        for (AccidentSceneModel model: dataValues){
+            if (model.getRegNum().toLowerCase().contains(text.toString().toLowerCase())){
+                modelArrayListFiltered.add(model);
+            }
+        }
+        accidentAdapter.filterList(modelArrayListFiltered);
+    }
+
+
 }
