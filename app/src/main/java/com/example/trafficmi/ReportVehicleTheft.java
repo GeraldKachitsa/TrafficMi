@@ -13,6 +13,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.trafficmi.Model.VehicleTheftReport;
@@ -30,6 +31,7 @@ public class ReportVehicleTheft extends AppCompatActivity  {
     TextInputEditText carColor;
     TextInputEditText vehicleRegNumber;
     TextInputEditText vehicle_blue_book;
+    EditText vehicleTheftDescription;
     Button reportTheftBtn;
     Button searchBtn;
     RecyclerView recyclerView;
@@ -51,6 +53,7 @@ public class ReportVehicleTheft extends AppCompatActivity  {
         carColor = (TextInputEditText) findViewById(R.id.car_color);
         vehicleRegNumber = (TextInputEditText) findViewById(R.id.reg_num);
         vehicle_blue_book = (TextInputEditText) findViewById(R.id.blue_book);
+        vehicleTheftDescription = (EditText) findViewById(R.id.driverOffenceDescription);
         reportTheftBtn = (Button) findViewById(R.id.reportTheftBtn);
 
         searchBtn = findViewById(R.id.action_search);
@@ -176,11 +179,20 @@ public class ReportVehicleTheft extends AppCompatActivity  {
         if(blueBookOfVehicle.isEmpty()){
 
 //            vehicle_blue_book .setError("blue book cannot be empty");
-        }else{
+        }
+
+        String accidentDescription = vehicleTheftDescription.getText().toString().trim();
+
+        if (accidentDescription.isEmpty()) {
+            // accidentDescription.setErrorEnabled(true);
+            vehicleTheftDescription.setError("Name of a car cannot be empty");
+        }
+
+        else{
 
             //Writing to database
             //Writing to database
-            VehicleTheftReport vehicleTheftReport = new VehicleTheftReport( fullNameCar, makeOfCar, colorOfVehicle, regNumberOfVehicle, blueBookOfVehicle);
+            VehicleTheftReport vehicleTheftReport = new VehicleTheftReport( fullNameCar, makeOfCar, colorOfVehicle, regNumberOfVehicle, blueBookOfVehicle, accidentDescription);
             referenci.child(regNumberOfVehicle).setValue(vehicleTheftReport);
             Toast.makeText(getApplicationContext(), "Reported Successfully...", Toast.LENGTH_LONG).show();
 
@@ -189,6 +201,7 @@ public class ReportVehicleTheft extends AppCompatActivity  {
             carColor.setText("");
             vehicleRegNumber.setText("");
             vehicle_blue_book.setText("");
+            vehicleTheftDescription.setText("");
 //            startActivity( new Intent(this, ViewVehicleTheft.class));
 
 

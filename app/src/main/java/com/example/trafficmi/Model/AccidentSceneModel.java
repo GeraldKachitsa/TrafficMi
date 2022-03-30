@@ -7,6 +7,7 @@ public class AccidentSceneModel {
         this.regNum = regNum;
         this.color = color;
         this.name = name;
+
     }
 
     public String getRegNum() {
@@ -32,4 +33,7 @@ public class AccidentSceneModel {
     public void setName(String name) {
         this.name = name;
     }
+
+
+
 }

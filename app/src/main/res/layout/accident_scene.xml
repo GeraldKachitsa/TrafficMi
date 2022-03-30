@@ -142,8 +142,18 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <EditText
+            android:id="@+id/driverOffenceDescription"
+            android:layout_width="match_parent"
+            android:hint="Other details"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_below="@+id/carColor"
+            android:gravity="start|top"
+            android:inputType="textMultiLine" />
+
         <Button
-            android:layout_below="@id/carColor"
+            android:layout_below="@id/driverOffenceDescription"
             android:id="@+id/reportTheftBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -152,6 +162,8 @@
             android:text="Report"
             android:backgroundTint="@color/dim_grey"
             tools:ignore="MissingConstraints" />
+
+
 
 
     </RelativeLayout>

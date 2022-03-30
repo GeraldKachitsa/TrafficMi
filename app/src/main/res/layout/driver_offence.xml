@@ -117,11 +117,12 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
+
         <Button
             android:id="@+id/goToNextOffenceBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/carName"
+            android:layout_below="@id/driverOffenceDescription"
 
             android:layout_marginTop="20dp"
 
@@ -131,6 +132,15 @@
             app:iconSize="40dp"
 
             tools:ignore="MissingConstraints" />
+        <EditText
+            android:id="@+id/driverOffenceDescription"
+            android:layout_width="match_parent"
+            android:hint="Other details"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_below="@+id/carName"
+            android:gravity="start|top"
+            android:inputType="textMultiLine" />
 
         <TextView
             android:id="@+id/textView1"

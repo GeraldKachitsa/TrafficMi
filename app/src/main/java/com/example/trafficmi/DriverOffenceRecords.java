@@ -1,12 +1,14 @@
 package com.example.trafficmi;
 
+import android.widget.EditText;
+
 import com.google.android.material.textfield.TextInputLayout;
 
 public class DriverOffenceRecords {
 
-    String driverName, licenseNumber, driverOffenceLocation;
+    String driverName, licenseNumber, driverOffenceLocation, driverOffenceDescription;
 
-    public DriverOffenceRecords(TextInputLayout fullNameOfDriver, TextInputLayout driverLicenseNumber, TextInputLayout driverOffenceLocation) {
+    public DriverOffenceRecords(TextInputLayout fullNameOfDriver, TextInputLayout driverLicenseNumber, TextInputLayout driverOffenceLocation, EditText driverOffenceDescription) {
 
     }
 
@@ -14,6 +16,13 @@ public class DriverOffenceRecords {
         this.driverName =driverName;
         this.licenseNumber = licenseNumber;
         this.driverOffenceLocation =driverOffenceLocation;
+
+    }
+    public DriverOffenceRecords(String driverName, String licenseNumber, String driverOffenceLocation, String driverOffenceDescription) {
+        this.driverName =driverName;
+        this.licenseNumber = licenseNumber;
+        this.driverOffenceLocation =driverOffenceLocation;
+        this.driverOffenceDescription = driverOffenceDescription;
     }
 
     public String getDriverName() {
@@ -44,6 +53,17 @@ public class DriverOffenceRecords {
     public void setDriverOffenceLocation(String vehicleColor) {
 
         this.driverOffenceLocation = driverOffenceLocation;
+    }
+
+
+    public String getDriverOffenceDescription() {
+
+        return driverOffenceDescription;
+    }
+
+    public void setDriverOffenceDescription(String driverOffenceDescription) {
+
+        this.driverOffenceDescription = driverOffenceDescription;
     }
 
 }

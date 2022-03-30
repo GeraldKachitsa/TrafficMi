@@ -19,6 +19,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +43,7 @@ public class DriverOffence extends AppCompatActivity {
     private TextInputEditText fullNameOfDriver;
     private TextInputEditText driverLicenseNumber;
     private TextInputEditText driverOffenceLocation;
+    EditText driverOffenceDescription;
     private Button updateDriverRecordsBtn;
     private TextView textView;
     FusedLocationProviderClient fusedLocationProviderClient;
@@ -63,6 +65,7 @@ public class DriverOffence extends AppCompatActivity {
         fullNameOfDriver = (TextInputEditText) findViewById(R.id.vehicleRegNumber_id);
         driverLicenseNumber = (TextInputEditText) findViewById(R.id.carMake_id);
         driverOffenceLocation = (TextInputEditText) findViewById(R.id.car_name_id);
+        driverOffenceDescription = (EditText) findViewById(R.id.driverOffenceDescription);
         driverOffenceToolBar = (Toolbar) findViewById(R.id.driverOffenceToolBar);
         textView = findViewById(R.id.textView1);
 
@@ -215,10 +218,20 @@ public class DriverOffence extends AppCompatActivity {
         if(locationOfOffence.isEmpty()){
             driverOffenceLocation.setError("");
             driverOffenceLocation.setError("address of driver cannot be empty");
-        }else{
+        }
+
+       String offenceDescription = driverOffenceDescription.getText().toString().trim();
+
+       if (offenceDescription.isEmpty()) {
+           // accidentDescription.setErrorEnabled(true);
+           driverOffenceDescription.setError("Offence description cannot be empty");
+       }
+
+
+        else{
 
             //Writing to database
-           com.example.trafficmi.DriverOffenceRecords driverOffenceRecords = new com.example.trafficmi.DriverOffenceRecords(fullNameDriver, driverLicense, locationOfOffence);
+           com.example.trafficmi.DriverOffenceRecords driverOffenceRecords = new com.example.trafficmi.DriverOffenceRecords(fullNameDriver, driverLicense, locationOfOffence,offenceDescription);
             referenci.child(driverLicense).setValue(driverOffenceRecords);
            driverOffenceLocation.setError("");
            Toast.makeText(getApplicationContext(),

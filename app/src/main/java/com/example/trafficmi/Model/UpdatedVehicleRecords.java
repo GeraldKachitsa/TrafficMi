@@ -2,17 +2,18 @@ package com.example.trafficmi.Model;
 
 public class UpdatedVehicleRecords {
 
-        String nameOfVehicle, make, vehicleColor, vehicleRegNumber;
+        String nameOfVehicle, make, vehicleColor, vehicleRegNumber,accidentSceneDescription;
 
         public UpdatedVehicleRecords() {
 
         }
 
-        public UpdatedVehicleRecords(String nameOfVehicle, String make, String vehicleColor, String vehicleRegNumber) {
+        public UpdatedVehicleRecords(String nameOfVehicle, String make, String vehicleColor, String vehicleRegNumber, String accidentSceneDescription) {
             this.nameOfVehicle = nameOfVehicle;
             this.make = make;
             this.vehicleColor = vehicleColor;
             this.vehicleRegNumber = vehicleRegNumber;
+            this.accidentSceneDescription = accidentSceneDescription;
         }
 
         public String getNameOfVehicle() {
@@ -45,6 +46,14 @@ public class UpdatedVehicleRecords {
 
     public void setVehicleRegNumber(String vehicleRegNumber) {
         this.vehicleRegNumber = vehicleRegNumber;
+    }
+
+    public String getAccidentSceneDescription() {
+        return accidentSceneDescription;
+    }
+
+    public void setAccidentSceneDescription(String accidentSceneDescription) {
+        this.accidentSceneDescription = accidentSceneDescription;
     }
 
 }
