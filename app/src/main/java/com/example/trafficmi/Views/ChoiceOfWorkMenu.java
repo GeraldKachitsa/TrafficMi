@@ -73,7 +73,7 @@ public class ChoiceOfWorkMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                    startActivity(new Intent(ChoiceOfWorkMenu.this, DriverOffenseDetail.class));
+                    startActivity(new Intent(ChoiceOfWorkMenu.this, AccidentView.class));
 
             }
         });
@@ -82,7 +82,7 @@ public class ChoiceOfWorkMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                    startActivity(new Intent(ChoiceOfWorkMenu.this, AccidentView.class));
+                    startActivity(new Intent(ChoiceOfWorkMenu.this, DriverOffenseDetail.class));
 
             }
         });

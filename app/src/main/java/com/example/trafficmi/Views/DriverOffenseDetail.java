@@ -7,12 +7,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 
 import com.example.trafficmi.AdapterPackage.DriverOffinceAdapter;
+import com.example.trafficmi.Model.AccidentSceneModel;
 import com.example.trafficmi.Model.DriversOffenceModel;
 import com.example.trafficmi.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,6 +31,7 @@ public class DriverOffenseDetail extends AppCompatActivity {
     //Floating button initialization
     private FloatingActionButton driver_offence_fab_control;
 
+    TextInputEditText searchDriver_id;
     RecyclerView recyclerView;
     // Firebase database
     FirebaseDatabase root = FirebaseDatabase.getInstance();
@@ -45,6 +50,8 @@ public class DriverOffenseDetail extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(driverOffinceAdapter);
+
+        searchDriver_id = (TextInputEditText) findViewById(R.id.searchDriver_field_id);
 
         //driver_offence_fab_control
         driver_offence_fab_control = findViewById(R.id.accident_scene_fab_control);
@@ -100,5 +107,34 @@ public class DriverOffenseDetail extends AppCompatActivity {
 
             }
         });
+        searchDriver_id.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                filterd(s.toString());
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
+
+    private void filterd(String text) {
+
+        ArrayList<DriversOffenceModel> modelArrayListFiltered = new ArrayList<>();
+        for (DriversOffenceModel model: dataValues){
+            if (model.getLisenceNumber().toLowerCase().contains(text.toString().toLowerCase())){
+                modelArrayListFiltered.add(model);
+            }
+        }
+       driverOffinceAdapter.filterList(modelArrayListFiltered);
+    }
+
 }

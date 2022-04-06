@@ -16,6 +16,7 @@
             android:gravity="center"
             android:textColor="@color/white"
             android:text="DRIVERS OFFENCES"
+            android:textStyle="bold"
             />
     </RelativeLayout>
 </androidx.appcompat.widget.Toolbar>

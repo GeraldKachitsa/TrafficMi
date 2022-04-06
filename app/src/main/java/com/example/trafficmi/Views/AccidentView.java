@@ -79,7 +79,7 @@ public class AccidentView extends AppCompatActivity {
                         try{
                             HashMap<String, Object> userData = (HashMap<String, Object>) data;
 //
-                            dataValues.add(new AccidentSceneModel(userData.get("vehicleRegNumber").toString(), userData.get("vehicleColor").toString(), userData.get("nameOfVehicle").toString()));
+                            dataValues.add(new AccidentSceneModel(userData.get("vehicleRegNumber").toString(), userData.get("vehicleColor").toString(), userData.get("nameOfVehicle").toString(), userData.get("make").toString(), userData.get("otherDetails").toString()));
 //
                         }catch (ClassCastException cce){
 

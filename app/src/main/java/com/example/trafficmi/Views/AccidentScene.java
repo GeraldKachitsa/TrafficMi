@@ -24,7 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class AccidentScene extends AppCompatActivity {
     private TextInputLayout vehicleRegNumber, carColor, carMake, carName;
-    EditText accidentSceneDescription;
+    EditText otherDetails;
     private Button updateVehicleRecordsBtn;
     private Toolbar accidentSceneToolBar;
     //firebase database
@@ -42,7 +42,7 @@ public class AccidentScene extends AppCompatActivity {
         carColor = (TextInputLayout) findViewById(R.id.carColor);
         carMake= (TextInputLayout) findViewById(R.id.carMake);
         carName = (TextInputLayout) findViewById(R.id.carName);
-        accidentSceneDescription = (EditText) findViewById(R.id.driverOffenceDescription);
+        otherDetails = (EditText) findViewById(R.id.otherDetails);
         //Tool bar
 
         accidentSceneToolBar = (Toolbar) findViewById(R.id.accidentSceneToolBar);
@@ -169,18 +169,18 @@ public class AccidentScene extends AppCompatActivity {
 
         }
 
-        String accidentDescription = accidentSceneDescription.getText().toString().trim();
+        String details = otherDetails.getText().toString().trim();
 
-        if (accidentDescription.isEmpty()) {
+        if (details.isEmpty()) {
            // accidentDescription.setErrorEnabled(true);
-            accidentSceneDescription.setError("Accident description cannot be empty");
+            otherDetails.setError("Accident description cannot be empty");
         }
 
         else {
 
             // Write to Database
 
-            UpdatedVehicleRecords updatedVehicleRecords = new UpdatedVehicleRecords(nameOfCar, makeOfCar, colorOfCar, vehicleRegistrationNumber,accidentDescription);
+            UpdatedVehicleRecords updatedVehicleRecords = new UpdatedVehicleRecords(nameOfCar, makeOfCar, colorOfCar, vehicleRegistrationNumber,details);
             referenci.child(vehicleRegistrationNumber).setValue(updatedVehicleRecords);
             Toast.makeText(getApplicationContext(),
                     "Vehicle Records Successfully updated",
@@ -190,7 +190,7 @@ public class AccidentScene extends AppCompatActivity {
             carColor.getEditText().setText("");
             carMake.getEditText().setText("");
             carName.getEditText().setText("");
-            accidentSceneDescription.setText("");
+            otherDetails.setText("");
             startActivity(new Intent(this, AccidentView.class));
 
 

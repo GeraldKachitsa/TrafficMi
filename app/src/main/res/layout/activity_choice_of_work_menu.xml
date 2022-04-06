@@ -68,6 +68,7 @@
         android:textColor="@color/white"
         android:text="View"
         android:src="@drawable/ic_baseline_view_module_24"
+        android:tint="@color/white"
         android:backgroundTint="@color/dim_grey"
         android:layout_height="wrap_content"/>
 
@@ -82,8 +83,8 @@
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/dim_grey"
-        android:src="@drawable/ic_add" >
+        android:backgroundTint="@color/white"
+        android:src="@drawable/ic_vehicle_accident_icon" >
 
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
@@ -93,6 +94,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
+
         android:layout_above="@+id/accident_scene_fab_control"
         android:layout_alignParentRight="true"
         android:layout_marginStart="20dp"
@@ -100,8 +102,8 @@
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="9dp"
-        android:backgroundTint="@color/dim_grey"
-        android:src="@drawable/ic_add" />
+        android:backgroundTint="@color/white"
+        android:src="@drawable/ic_vehicle_theft_icon2" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_control_as"
@@ -115,6 +117,6 @@
         android:layout_marginRight="23dp"
         android:layout_marginBottom="5dp"
         android:backgroundTint="@color/dim_grey"
-        android:src="@drawable/ic_add" />
+        android:src="@drawable/ic__add" />
 
 </RelativeLayout>

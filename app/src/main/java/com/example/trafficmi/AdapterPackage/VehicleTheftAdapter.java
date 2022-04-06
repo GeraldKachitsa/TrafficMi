@@ -9,14 +9,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.trafficmi.Model.AccidentSceneModel;
 import com.example.trafficmi.Model.ModelClass;
+import com.example.trafficmi.Model.VehicleTheftReport;
 import com.example.trafficmi.R;
 
 import java.util.ArrayList;
 
 public class VehicleTheftAdapter extends RecyclerView.Adapter<VehicleTheftAdapter.ViewHolder> {
-    private ArrayList<ModelClass>  arrayList;
-    private Context appContext;
+    ArrayList<ModelClass>  arrayList;
+    Context appContext;
 
     public VehicleTheftAdapter(Context appContext, ArrayList<ModelClass> arrayList) {
         this.arrayList = arrayList;
@@ -33,14 +35,19 @@ public class VehicleTheftAdapter extends RecyclerView.Adapter<VehicleTheftAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ModelClass vehicleTheftReport = arrayList.get(position);
-        holder.car_color.setText(vehicleTheftReport.getCarColor());
-        holder.car_reg.setText(vehicleTheftReport.getVehicleRegNumber());
+        holder.car_color.setText(vehicleTheftReport.getVehicleRegNumber());
+        holder.car_reg.setText(vehicleTheftReport.getCarColor());
         holder.carname.setText(vehicleTheftReport.getCarName());
     }
 
     @Override
     public int getItemCount() {
         return arrayList.size();
+    }
+
+    public void filteredList(ArrayList<ModelClass> models){
+        arrayList= models;
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

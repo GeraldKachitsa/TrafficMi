@@ -43,11 +43,16 @@ public class AccidentAdapter extends RecyclerView.Adapter<AccidentAdapter.ViewHo
         holder.name.setText(accidentSceneModel.getName().toString());
         holder.regnum.setText(accidentSceneModel.getRegNum().toString());
         holder.color.setText(accidentSceneModel.getColor().toString());
+//        holder.otherDetails2.setText(accidentSceneModel.getOtherDetails().toString());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ViewVehicleTheftDetails.class);
                 intent.putExtra("carRegnum", accidentSceneModel.getRegNum().toString());
+                intent.putExtra("nameOfCar", accidentSceneModel.getName().toString());
+                intent.putExtra("colorOfCar", accidentSceneModel.getColor().toString());
+                intent.putExtra("yearOfMake", accidentSceneModel.getYearOfMake().toString());
+                intent.putExtra("otherDetails", accidentSceneModel.getOtherDetails().toString());
                 context.startActivity(intent);
             }
         });
@@ -72,6 +77,7 @@ public class AccidentAdapter extends RecyclerView.Adapter<AccidentAdapter.ViewHo
             regnum = itemView.findViewById(R.id.car_color_id);
             color = itemView.findViewById(R.id.car_reg_num_id);
             name = itemView.findViewById(R.id.car_name_id);
+//            otherDetails2 = itemView.findViewById(R.id.otherDetails2);
         }
     }
 }

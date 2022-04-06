@@ -20,6 +20,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,7 +33,6 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -45,6 +46,7 @@ public class DriverOffence extends AppCompatActivity {
     private TextInputEditText driverOffenceLocation;
     EditText driverOffenceDescription;
     private Button updateDriverRecordsBtn;
+
     private TextView textView;
     FusedLocationProviderClient fusedLocationProviderClient;
 
@@ -57,7 +59,9 @@ public class DriverOffence extends AppCompatActivity {
     DatabaseReference referenci;
     private Object FusedLocationProviderClient;
 
-
+    RadioGroup radioGroup;
+    RadioButton radioBtn;
+    String sexHolder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,13 +69,12 @@ public class DriverOffence extends AppCompatActivity {
         fullNameOfDriver = (TextInputEditText) findViewById(R.id.vehicleRegNumber_id);
         driverLicenseNumber = (TextInputEditText) findViewById(R.id.carMake_id);
         driverOffenceLocation = (TextInputEditText) findViewById(R.id.car_name_id);
-        driverOffenceDescription = (EditText) findViewById(R.id.driverOffenceDescription);
+        driverOffenceDescription = (EditText) findViewById(R.id.otherDetails);
         driverOffenceToolBar = (Toolbar) findViewById(R.id.driverOffenceToolBar);
         textView = findViewById(R.id.textView1);
-
+        radioGroup = findViewById(R.id.radioGroup);
         // fused location initialization
         FusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
-
 
         setSupportActionBar(driverOffenceToolBar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -194,6 +197,14 @@ public class DriverOffence extends AppCompatActivity {
     }
    public void driverOffenceRecords(){
         //firebase Database
+       int clickedRadioButton=radioGroup.getCheckedRadioButtonId();
+       radioBtn = findViewById(clickedRadioButton);
+
+       if (clickedRadioButton == -1){
+            radioBtn.setError("Choose sex");
+       }else{
+          sexHolder = radioBtn.getText().toString();
+       }
 
        root = FirebaseDatabase.getInstance();
        referenci = root.getReference();
@@ -231,7 +242,7 @@ public class DriverOffence extends AppCompatActivity {
         else{
 
             //Writing to database
-           com.example.trafficmi.DriverOffenceRecords driverOffenceRecords = new com.example.trafficmi.DriverOffenceRecords(fullNameDriver, driverLicense, locationOfOffence,offenceDescription);
+           com.example.trafficmi.DriverOffenceRecords driverOffenceRecords = new com.example.trafficmi.DriverOffenceRecords(fullNameDriver, driverLicense, locationOfOffence,offenceDescription, sexHolder);
             referenci.child(driverLicense).setValue(driverOffenceRecords);
            driverOffenceLocation.setError("");
            Toast.makeText(getApplicationContext(),
@@ -241,6 +252,7 @@ public class DriverOffence extends AppCompatActivity {
            fullNameOfDriver.setText("");
             driverLicenseNumber.setText("");
             driverOffenceLocation.setText("");
+           driverOffenceDescription.setText("");
            startActivity( new Intent(this, DriverOffenseDetail.class));
 
         }

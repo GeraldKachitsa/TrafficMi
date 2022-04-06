@@ -14,6 +14,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.trafficmi.Model.VehicleTheftReport;
@@ -34,6 +36,8 @@ public class ReportVehicleTheft extends AppCompatActivity  {
     EditText vehicleTheftDescription;
     Button reportTheftBtn;
     Button searchBtn;
+    RadioGroup radioGroupSex;
+    RadioButton radioSexButton;
     RecyclerView recyclerView;
 
 
@@ -53,8 +57,10 @@ public class ReportVehicleTheft extends AppCompatActivity  {
         carColor = (TextInputEditText) findViewById(R.id.car_color);
         vehicleRegNumber = (TextInputEditText) findViewById(R.id.reg_num);
         vehicle_blue_book = (TextInputEditText) findViewById(R.id.blue_book);
-        vehicleTheftDescription = (EditText) findViewById(R.id.driverOffenceDescription);
+        vehicleTheftDescription = (EditText) findViewById(R.id.otherDetails);
         reportTheftBtn = (Button) findViewById(R.id.reportTheftBtn);
+        radioGroupSex = findViewById(R.id.radioGroupSex);
+
 
         searchBtn = findViewById(R.id.action_search);
         recyclerView = findViewById(R.id.recycler_view_id);
@@ -134,6 +140,17 @@ public class ReportVehicleTheft extends AppCompatActivity  {
     }
     private void goToViewVehicleTheft() {
 
+        //radio buttons
+        // get selected radio button from radioGroup
+        int selectedId = radioGroupSex.getCheckedRadioButtonId();
+
+        // find the radiobutton by returned id
+        radioSexButton = (RadioButton) findViewById(selectedId);
+
+
+        String selectedSex = radioSexButton.getText().toString();
+
+
         //firebase Database
 
         root = FirebaseDatabase.getInstance();
@@ -190,9 +207,10 @@ public class ReportVehicleTheft extends AppCompatActivity  {
 
         else{
 
+
             //Writing to database
-            //Writing to database
-            VehicleTheftReport vehicleTheftReport = new VehicleTheftReport( fullNameCar, makeOfCar, colorOfVehicle, regNumberOfVehicle, blueBookOfVehicle, accidentDescription);
+
+            VehicleTheftReport vehicleTheftReport = new VehicleTheftReport( fullNameCar, makeOfCar, colorOfVehicle, regNumberOfVehicle, blueBookOfVehicle, accidentDescription, selectedSex);
             referenci.child(regNumberOfVehicle).setValue(vehicleTheftReport);
             Toast.makeText(getApplicationContext(), "Reported Successfully...", Toast.LENGTH_LONG).show();
 

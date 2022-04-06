@@ -10,8 +10,22 @@
         android:id="@+id/f_id"
         layout="@layout/driver_offense_toolbar"/>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_margin="5dp"
         android:layout_below="@+id/f_id"
+        android:id="@+id/searchDriver_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/searchDriver_field_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Search vehicle (plate no.)" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@+id/searchDriver_id"
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

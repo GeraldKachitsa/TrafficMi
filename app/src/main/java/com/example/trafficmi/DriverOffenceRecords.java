@@ -6,7 +6,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class DriverOffenceRecords {
 
-    String driverName, licenseNumber, driverOffenceLocation, driverOffenceDescription;
+    String driverName, licenseNumber, driverOffenceLocation, driverOffenceDescription, sexHolder;
 
     public DriverOffenceRecords(TextInputLayout fullNameOfDriver, TextInputLayout driverLicenseNumber, TextInputLayout driverOffenceLocation, EditText driverOffenceDescription) {
 
@@ -18,11 +18,12 @@ public class DriverOffenceRecords {
         this.driverOffenceLocation =driverOffenceLocation;
 
     }
-    public DriverOffenceRecords(String driverName, String licenseNumber, String driverOffenceLocation, String driverOffenceDescription) {
+    public DriverOffenceRecords(String driverName, String licenseNumber, String driverOffenceLocation, String driverOffenceDescription, String sexHolder) {
         this.driverName =driverName;
         this.licenseNumber = licenseNumber;
         this.driverOffenceLocation =driverOffenceLocation;
         this.driverOffenceDescription = driverOffenceDescription;
+        this.sexHolder = sexHolder;
     }
 
     public String getDriverName() {

@@ -4,13 +4,13 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class VehicleTheftReport {
 
-    String  carName, carMake, carColor, vehicleRegNumber,vehicle_blue_book,vehicleTheftDescription;
+    String  carName, carMake, carColor, vehicleRegNumber,vehicle_blue_book,vehicleTheftDescription, selectedSex;
 
     public VehicleTheftReport() {
 
     }
 
-    public VehicleTheftReport( String  carName, String  carMake, String carColor, String vehicleRegNumber, String vehicle_blue_book, String vehicleTheftDescription) {
+    public VehicleTheftReport( String  carName, String  carMake, String carColor, String vehicleRegNumber, String vehicle_blue_book, String vehicleTheftDescription, String selectedSex) {
 
         this.carName = carName;
         this.carMake = carMake;
@@ -18,14 +18,16 @@ public class VehicleTheftReport {
         this.vehicleRegNumber = vehicleRegNumber;
         this.vehicle_blue_book = vehicle_blue_book;
         this.vehicleTheftDescription = vehicleTheftDescription;
+        this.selectedSex = selectedSex;
 
     }
 
-    public VehicleTheftReport( String  carName, String carColor, String vehicleRegNumber,String vehicleTheftDescription) {
+    public VehicleTheftReport( String  carName, String carColor, String vehicleRegNumber,String vehicleTheftDescription, String selectedSex) {
         this.carName = carName;
         this.carColor = carColor;
         this.vehicleRegNumber = vehicleRegNumber;
         this.vehicleTheftDescription = vehicleTheftDescription;
+        this.selectedSex = selectedSex;
     }
 
     public String getCarName() {
@@ -74,5 +76,13 @@ public class VehicleTheftReport {
 
     public void setVehicleTheftDescription(String vehicleTheftDescription) {
         this.vehicle_blue_book = vehicleTheftDescription;
+    }
+
+    public String getSelectedSex() {
+        return selectedSex;
+    }
+
+    public void setSelectedSex(String selectedSex) {
+        this.selectedSex = selectedSex;
     }
 }

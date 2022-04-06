@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.trafficmi.Model.AccidentSceneModel;
 import com.example.trafficmi.Model.DriversOffenceModel;
 import com.example.trafficmi.R;
 
@@ -41,6 +42,10 @@ public class DriverOffinceAdapter extends RecyclerView.Adapter<DriverOffinceAdap
     @Override
     public int getItemCount() {
         return data.size();
+    }
+    public void filterList(ArrayList<DriversOffenceModel> models){
+        data = models;
+        notifyDataSetChanged();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

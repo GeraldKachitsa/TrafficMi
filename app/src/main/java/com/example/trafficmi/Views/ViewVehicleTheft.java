@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.TextView;
 
@@ -15,6 +17,7 @@ import com.example.trafficmi.Model.ModelClass;
 import com.example.trafficmi.R;
 import com.example.trafficmi.ReportVehicleTheft;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,6 +33,7 @@ public class ViewVehicleTheft extends AppCompatActivity {
     private FloatingActionButton vehicle_theft_fab_control;
 
     TextView tvView;
+    TextInputEditText search_id_2;
     RecyclerView recyclerView;
 // Firebase database
     FirebaseDatabase root = FirebaseDatabase.getInstance();
@@ -48,6 +52,8 @@ public class ViewVehicleTheft extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(vehicleTheftAdapter);
+
+        search_id_2 = (TextInputEditText) findViewById(R.id.search_field_id_2);
 
 
         //driver_offence_fab_control
@@ -104,5 +110,32 @@ public class ViewVehicleTheft extends AppCompatActivity {
 
             }
         });
+
+        search_id_2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                filteredVehicle(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+    }
+
+    private void filteredVehicle(String text) {
+        ArrayList<ModelClass> modelArrayListFiltered = new ArrayList<>();
+        for (ModelClass model: dataValues){
+            if (model.getVehicleRegNumber().toLowerCase().contains(text.toString().toLowerCase())){
+                modelArrayListFiltered.add(model);
+            }
+        }
+        vehicleTheftAdapter.filteredList(modelArrayListFiltered);
     }
 }

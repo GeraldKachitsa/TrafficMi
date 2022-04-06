@@ -1,4 +1,4 @@
-package com.example.trafficmi.Views;
+package com.example.trafficmi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,9 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.example.trafficmi.R;
 
-public class ViewVehicleTheftDetails extends AppCompatActivity {
+public class DriverOffenceData extends AppCompatActivity {
     TextView carRegnum,nameOfCar,colorOfCar,yearOfMake,otherDetails;
 
     @Override
