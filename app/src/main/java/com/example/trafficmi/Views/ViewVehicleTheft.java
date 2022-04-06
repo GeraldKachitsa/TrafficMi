@@ -81,7 +81,7 @@ public class ViewVehicleTheft extends AppCompatActivity {
                                 try{
                                     HashMap<String, Object> userData = (HashMap<String, Object>) data;
 //
-//                                            dataValues.add(new ModelClass(userData.get("carName").toString(), userData.get("carColor").toString(), userData.get("vehicleRegNumber").toString(),userData.get("vehicleTheftDescription").toString(),userData.get("selectedSex").toString(), userData.get("vehicle_blue_book").toString()));
+                                            dataValues.add(new ModelClass(userData.get("carName").toString(), userData.get("carColor").toString(), userData.get("carMake").toString(), userData.get("vehicleRegNumber").toString(),userData.get("vehicleTheftDescription").toString(),userData.get("selectedSex").toString(), userData.get("vehicle_blue_book").toString()));
 //
                                 }catch (ClassCastException cce){
 
@@ -131,9 +131,9 @@ public class ViewVehicleTheft extends AppCompatActivity {
     private void filteredVehicle(String text) {
         ArrayList<ModelClass> modelArrayListFiltered = new ArrayList<>();
         for (ModelClass model: dataValues){
-//            if (model.getVehicleRegNumber().toLowerCase().contains(text.toString().toLowerCase())){
-//                modelArrayListFiltered.add(model);
-//            }
+            if (model.getCarRegNumTheft().toLowerCase().contains(text.toString().toLowerCase())){
+                modelArrayListFiltered.add(model);
+            }
         }
         vehicleTheftAdapter.filteredList(modelArrayListFiltered);
     }
