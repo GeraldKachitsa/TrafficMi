@@ -42,7 +42,7 @@ public class AccidentScene extends AppCompatActivity {
         carColor = (TextInputLayout) findViewById(R.id.carColor);
         carMake= (TextInputLayout) findViewById(R.id.carMake);
         carName = (TextInputLayout) findViewById(R.id.carName);
-        otherDetails = (EditText) findViewById(R.id.otherDetails);
+        otherDetails = (EditText) findViewById(R.id.otherOffenceDetails);
         //Tool bar
 
         accidentSceneToolBar = (Toolbar) findViewById(R.id.accidentSceneToolBar);

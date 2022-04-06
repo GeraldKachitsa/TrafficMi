@@ -8,24 +8,24 @@ import android.widget.TextView;
 
 
 public class DriverOffenceData extends AppCompatActivity {
-    TextView carRegnum,nameOfCar,colorOfCar,yearOfMake,otherDetails;
+    TextView driverName,sex,licenseNumber,location,otherDetails2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_vehicle_theft_details);
-        carRegnum= findViewById(R.id.driverName);
-        nameOfCar= findViewById(R.id.sex);
-        colorOfCar= findViewById(R.id.location);
-        yearOfMake= findViewById(R.id.licenseNumber);
-        otherDetails = findViewById(R.id.otherDetails2);
+        setContentView(R.layout.activity_driver_offence_data);
+        driverName= findViewById(R.id.carNameTheft);
+        sex= findViewById(R.id.carOwnerTheft);
+        licenseNumber= findViewById(R.id.sexTheft);
+        location= findViewById(R.id.carRegNumTheft);
+        otherDetails2 = findViewById(R.id.carYearOfMakeTheft);
 
         Intent intent = getIntent();
-        carRegnum.setText("Vehicle Registration Number:" + " " + " " + intent.getStringExtra("carRegnum"));
-        nameOfCar.setText("Name of Car:" + " " + " " + intent.getStringExtra("nameOfCar"));
-        colorOfCar.setText("color of Car:" + " " + " " + intent.getStringExtra("colorOfCar"));
-        yearOfMake.setText("Car Year of Make:" + " " + " " + intent.getStringExtra("yearOfMake"));
-        otherDetails.setText("Other Details:" + " " + " " + intent.getStringExtra("otherDetails"));
+        driverName.setText("Driver's Name :" + " " + " " + intent.getStringExtra("driverName"));
+        sex.setText("Sex :" + " " + " " + intent.getStringExtra("driverSex"));
+        licenseNumber.setText("License Number :" + " " + " " + intent.getStringExtra("driverLicenseNumber"));
+        location.setText("Location :" + " " + " " + intent.getStringExtra("offenceLocation"));
+        otherDetails2.setText("Other Details :" + " " + " " + intent.getStringExtra("offenceDescription"));
 
     }
 }

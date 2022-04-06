@@ -84,7 +84,7 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/radioGroup"
+                android:id="@+id/offenceRadioGroup"
                 android:orientation="horizontal"
                 >
                 <RadioButton
@@ -167,7 +167,7 @@
             android:id="@+id/goToNextOffenceBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/otherDetails"
+            android:layout_below="@id/otherOffenceDetails"
 
             android:layout_marginTop="20dp"
 
@@ -177,14 +177,16 @@
             app:iconSize="40dp"
 
             tools:ignore="MissingConstraints" />
+
         <EditText
-            android:id="@+id/otherDetails"
+            android:id="@+id/otherOffenceDetails"
             android:layout_width="match_parent"
-            android:hint="Other details"
             android:layout_height="wrap_content"
-            android:ems="10"
             android:layout_below="@+id/carName"
+            android:layout_marginTop="-1dp"
+            android:ems="10"
             android:gravity="start|top"
+            android:hint="Other details"
             android:inputType="textMultiLine" />
 
         <TextView

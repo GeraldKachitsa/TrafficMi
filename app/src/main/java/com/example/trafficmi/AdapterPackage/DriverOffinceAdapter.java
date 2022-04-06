@@ -1,6 +1,7 @@
 package com.example.trafficmi.AdapterPackage;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,9 +10,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.trafficmi.DriverOffenceData;
 import com.example.trafficmi.Model.AccidentSceneModel;
 import com.example.trafficmi.Model.DriversOffenceModel;
 import com.example.trafficmi.R;
+import com.example.trafficmi.Views.ViewVehicleTheftDetails;
 
 import java.util.ArrayList;
 
@@ -33,10 +36,26 @@ public class DriverOffinceAdapter extends RecyclerView.Adapter<DriverOffinceAdap
 
     @Override
     public void onBindViewHolder(@NonNull DriverOffinceAdapter.ViewHolder holder, int position) {
-        DriversOffenceModel accidentScene= data.get(position);
-        holder.disPayName.setText(accidentScene.getDisPayName().toString());
-        holder.driverOffenceLocation.setText(accidentScene.getDriverOffenceLocation().toString());
-        holder.lisenceNumber.setText(accidentScene.getLisenceNumber().toString());
+        DriversOffenceModel driversOffenceModel= data.get(position);
+        holder.disPayName.setText(driversOffenceModel.getDisPayName().toString());
+        holder.driverOffenceLocation.setText(driversOffenceModel.getDriverOffenceLocation().toString());
+        holder.lisenceNumber.setText(driversOffenceModel.getLisenceNumber().toString());
+
+        //getting driver offence data to cardView
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DriverOffenceData.class);
+                intent.putExtra("driverName", driversOffenceModel.getDisPayName().toString());
+                intent.putExtra("driverSex", driversOffenceModel.getSelectedSex().toString());
+                intent.putExtra("driverLicenseNumber", driversOffenceModel.getLisenceNumber().toString());
+                intent.putExtra("offenceLocation", driversOffenceModel.getDriverOffenceLocation().toString());
+                intent.putExtra("offenceDescription", driversOffenceModel.getDriverOffenceDescription().toString());
+                context.startActivity(intent);
+            }
+        });
+
     }
 
     @Override

@@ -15,11 +15,11 @@ public class ViewVehicleTheftDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_vehicle_theft_details);
-        carRegnum= findViewById(R.id.driverName);
-        nameOfCar= findViewById(R.id.sex);
-        colorOfCar= findViewById(R.id.location);
-        yearOfMake= findViewById(R.id.licenseNumber);
-        otherDetails = findViewById(R.id.otherDetails2);
+        carRegnum= findViewById(R.id.carNameTheft);
+        nameOfCar= findViewById(R.id.carOwnerTheft);
+        colorOfCar= findViewById(R.id.carRegNumTheft);
+        yearOfMake= findViewById(R.id.sexTheft);
+        otherDetails = findViewById(R.id.carYearOfMakeTheft);
 
         Intent intent = getIntent();
         carRegnum.setText("Vehicle Registration Number:" + " " + " " + intent.getStringExtra("carRegnum"));

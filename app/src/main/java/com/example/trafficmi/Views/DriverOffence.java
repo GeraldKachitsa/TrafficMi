@@ -46,6 +46,9 @@ public class DriverOffence extends AppCompatActivity {
     private TextInputEditText driverOffenceLocation;
     EditText driverOffenceDescription;
     private Button updateDriverRecordsBtn;
+    RadioGroup offenceRadioGroup;
+    RadioButton radioSexButton;
+
 
     private TextView textView;
     FusedLocationProviderClient fusedLocationProviderClient;
@@ -59,9 +62,7 @@ public class DriverOffence extends AppCompatActivity {
     DatabaseReference referenci;
     private Object FusedLocationProviderClient;
 
-    RadioGroup radioGroup;
-    RadioButton radioBtn;
-    String sexHolder;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,10 +70,10 @@ public class DriverOffence extends AppCompatActivity {
         fullNameOfDriver = (TextInputEditText) findViewById(R.id.vehicleRegNumber_id);
         driverLicenseNumber = (TextInputEditText) findViewById(R.id.carMake_id);
         driverOffenceLocation = (TextInputEditText) findViewById(R.id.car_name_id);
-        driverOffenceDescription = (EditText) findViewById(R.id.otherDetails);
+        driverOffenceDescription = (EditText) findViewById(R.id.otherOffenceDetails);
         driverOffenceToolBar = (Toolbar) findViewById(R.id.driverOffenceToolBar);
         textView = findViewById(R.id.textView1);
-        radioGroup = findViewById(R.id.radioGroup);
+        offenceRadioGroup = findViewById(R.id.offenceRadioGroup);
         // fused location initialization
         FusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
@@ -197,14 +198,22 @@ public class DriverOffence extends AppCompatActivity {
     }
    public void driverOffenceRecords(){
         //firebase Database
-       int clickedRadioButton=radioGroup.getCheckedRadioButtonId();
-       radioBtn = findViewById(clickedRadioButton);
+       //radio buttons
+       // get selected radio button from radioGroup
+       int selectedId = offenceRadioGroup.getCheckedRadioButtonId();
 
-       if (clickedRadioButton == -1){
-            radioBtn.setError("Choose sex");
-       }else{
-          sexHolder = radioBtn.getText().toString();
-       }
+       // find the radiobutton by returned id
+       radioSexButton = (RadioButton) findViewById(selectedId);
+
+
+       String selectedSex = radioSexButton.getText().toString();
+
+//
+//       if (selectedId == -1){
+//            radioSexButton.setError("Choose sex");
+//       }else{
+//          selectedSex = radioSexButton.getText().toString();
+//       }
 
        root = FirebaseDatabase.getInstance();
        referenci = root.getReference();
@@ -242,7 +251,7 @@ public class DriverOffence extends AppCompatActivity {
         else{
 
             //Writing to database
-           com.example.trafficmi.DriverOffenceRecords driverOffenceRecords = new com.example.trafficmi.DriverOffenceRecords(fullNameDriver, driverLicense, locationOfOffence,offenceDescription, sexHolder);
+           com.example.trafficmi.DriverOffenceRecords driverOffenceRecords = new com.example.trafficmi.DriverOffenceRecords(fullNameDriver, driverLicense, locationOfOffence,offenceDescription, selectedSex);
             referenci.child(driverLicense).setValue(driverOffenceRecords);
            driverOffenceLocation.setError("");
            Toast.makeText(getApplicationContext(),

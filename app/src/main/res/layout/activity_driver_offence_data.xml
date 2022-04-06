@@ -13,7 +13,7 @@
         android:layout_margin="20dp"
         app:cardElevation="5dp"
         app:cardCornerRadius="20dp"
-        android:id="@+id/topp"
+        android:id="@+id/topCardView"
         >
         <RelativeLayout
             android:layout_width="match_parent"
@@ -22,7 +22,7 @@
 
             <TextView
                 android:text="Driver's Name:"
-                android:id="@+id/driverName"
+                android:id="@+id/carNameTheft"
                 android:paddingTop="20dp"
                 android:padding="10dp"
                 android:textColor="@color/dim_grey"
@@ -32,8 +32,8 @@
                 android:layout_height="wrap_content"/>
             <TextView
                 android:text="Sex"
-                android:id="@+id/sex"
-                android:layout_below="@+id/driverName"
+                android:id="@+id/carOwnerTheft"
+                android:layout_below="@+id/carNameTheft"
                 android:textStyle="bold"
                 android:textColor="@color/dim_grey"
                 android:padding="10dp"
@@ -42,10 +42,10 @@
                 android:layout_height="wrap_content"/>
 
             <TextView
-                android:id="@+id/licenseNumber"
+                android:id="@+id/sexTheft"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/sex"
+                android:layout_below="@+id/carOwnerTheft"
                 android:background="#DFDFDE"
                 android:padding="10dp"
                 android:text="License Number"
@@ -53,10 +53,10 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/location"
+                android:id="@+id/carRegNumTheft"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/licenseNumber"
+                android:layout_below="@+id/sexTheft"
                 android:background="@color/purple_500"
                 android:padding="10dp"
                 android:text="Location:"
@@ -64,8 +64,8 @@
                 android:textStyle="bold" />
             <TextView
                 android:text="Other Details:"
-                android:id="@+id/otherDetails2"
-                android:layout_below="@+id/location"
+                android:id="@+id/carYearOfMakeTheft"
+                android:layout_below="@+id/carRegNumTheft"
                 android:textStyle="bold"
                 android:textColor="@color/dim_grey"
                 android:padding="10dp"
@@ -76,7 +76,7 @@
 
     </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
-        android:layout_below="@+id/topp"
+        android:layout_below="@+id/topCardView"
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:layout_margin="10dp"

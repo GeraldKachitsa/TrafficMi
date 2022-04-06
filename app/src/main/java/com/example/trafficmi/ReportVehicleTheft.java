@@ -57,7 +57,7 @@ public class ReportVehicleTheft extends AppCompatActivity  {
         carColor = (TextInputEditText) findViewById(R.id.car_color);
         vehicleRegNumber = (TextInputEditText) findViewById(R.id.reg_num);
         vehicle_blue_book = (TextInputEditText) findViewById(R.id.blue_book);
-        vehicleTheftDescription = (EditText) findViewById(R.id.otherDetails);
+        vehicleTheftDescription = (EditText) findViewById(R.id.otherOffenceDetails);
         reportTheftBtn = (Button) findViewById(R.id.reportTheftBtn);
         radioGroupSex = findViewById(R.id.radioGroupSex);
 
@@ -192,8 +192,8 @@ public class ReportVehicleTheft extends AppCompatActivity  {
 //            vehicleRegNumber.setError("");
 
         }
-        String blueBookOfVehicle =  vehicle_blue_book.getText().toString().trim();
-        if(blueBookOfVehicle.isEmpty()){
+        String CarOwner =  vehicle_blue_book.getText().toString().trim();
+        if(CarOwner.isEmpty()){
 
 //            vehicle_blue_book .setError("blue book cannot be empty");
         }
@@ -210,7 +210,7 @@ public class ReportVehicleTheft extends AppCompatActivity  {
 
             //Writing to database
 
-            VehicleTheftReport vehicleTheftReport = new VehicleTheftReport( fullNameCar, makeOfCar, colorOfVehicle, regNumberOfVehicle, blueBookOfVehicle, accidentDescription, selectedSex);
+            VehicleTheftReport vehicleTheftReport = new VehicleTheftReport( fullNameCar, makeOfCar, colorOfVehicle, regNumberOfVehicle, CarOwner, accidentDescription, selectedSex);
             referenci.child(regNumberOfVehicle).setValue(vehicleTheftReport);
             Toast.makeText(getApplicationContext(), "Reported Successfully...", Toast.LENGTH_LONG).show();
 

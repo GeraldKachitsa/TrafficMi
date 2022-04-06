@@ -1,6 +1,7 @@
 package com.example.trafficmi.AdapterPackage;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.trafficmi.Model.AccidentSceneModel;
 import com.example.trafficmi.Model.ModelClass;
 import com.example.trafficmi.Model.VehicleTheftReport;
+import com.example.trafficmi.MoreVehicleTheftInformation;
 import com.example.trafficmi.R;
+import com.example.trafficmi.Views.ViewVehicleTheftDetails;
 
 import java.util.ArrayList;
 
@@ -35,9 +38,28 @@ public class VehicleTheftAdapter extends RecyclerView.Adapter<VehicleTheftAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ModelClass vehicleTheftReport = arrayList.get(position);
-        holder.car_color.setText(vehicleTheftReport.getVehicleRegNumber());
-        holder.car_reg.setText(vehicleTheftReport.getCarColor());
-        holder.carname.setText(vehicleTheftReport.getCarName());
+        holder.car_color.setText(vehicleTheftReport.getCarNameTheft().toString());
+        holder.car_reg.setText(vehicleTheftReport.getCarOwnerTheft().toString());
+        holder.carname.setText(vehicleTheftReport.getSexTheft().toString());
+
+        //Handling events to holder
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(appContext, MoreVehicleTheftInformation.class);
+                intent.putExtra("carNameTheft", vehicleTheftReport.getCarNameTheft().toString());
+                intent.putExtra("carOwnerTheft", vehicleTheftReport.getCarOwnerTheft().toString());
+                intent.putExtra("sexOfOwner", vehicleTheftReport.getSexTheft().toString());
+                intent.putExtra(" carRegNumTheft", vehicleTheftReport.getCarRegNumTheft().toString());
+                intent.putExtra("carYearOfMakeTheft", vehicleTheftReport.getCarYearOfMakeTheft().toString());
+                intent.putExtra("colorOfCarTheft", vehicleTheftReport.getColorOfCarTheft().toString());
+                intent.putExtra(" detailsOfTheft", vehicleTheftReport.getDetailsOfTheft().toString());
+                appContext.startActivity(intent);
+            }
+        });
+
+
+
     }
 
     @Override
