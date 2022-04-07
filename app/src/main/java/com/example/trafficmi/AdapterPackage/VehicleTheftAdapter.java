@@ -10,12 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.trafficmi.Model.AccidentSceneModel;
 import com.example.trafficmi.Model.ModelClass;
-import com.example.trafficmi.Model.VehicleTheftReport;
-import com.example.trafficmi.MoreVehicleTheftInformation;
 import com.example.trafficmi.R;
-import com.example.trafficmi.Views.ViewVehicleTheftDetails;
+import com.example.trafficmi.Views.VehicleTheftData;
 
 import java.util.ArrayList;
 
@@ -46,13 +43,14 @@ public class VehicleTheftAdapter extends RecyclerView.Adapter<VehicleTheftAdapte
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(appContext, MoreVehicleTheftInformation.class);
+                Intent intent = new Intent(appContext, VehicleTheftData.class);
                 intent.putExtra("carNameTheft", vehicleTheftReport.getCarNameTheft().toString());
                 intent.putExtra("carOwnerTheft", vehicleTheftReport.getCarOwnerTheft().toString());
                 intent.putExtra("sexOfOwner", vehicleTheftReport.getSexTheft().toString());
                 intent.putExtra(" carRegNumTheft", vehicleTheftReport.getCarRegNumTheft().toString());
                 intent.putExtra("carYearOfMakeTheft", vehicleTheftReport.getCarYearOfMakeTheft().toString());
                 intent.putExtra("colorOfCarTheft", vehicleTheftReport.getColorOfCarTheft().toString());
+                intent.putExtra("locationTheft", vehicleTheftReport.getLocationTheft().toString());
                 intent.putExtra(" detailsOfTheft", vehicleTheftReport.getDetailsOfTheft().toString());
                 appContext.startActivity(intent);
             }

@@ -21,16 +21,18 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/car_name_id"
-                android:textSize="20sp"
                 android:textStyle="bold"
+                android:id="@+id/car_color_id"
+                android:textSize="16sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Car name"
+                android:hint="Car color"
                 />
 
+
             <TextView
-                android:layout_below="@+id/car_name_id"
+                android:layout_below="@+id/car_color_id"
+                android:textStyle="bold"
                 android:id="@+id/car_reg_num_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -39,18 +41,20 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            android:layout_weight="30"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_weight="30"
+            android:gravity="center">
+
             <TextView
-                android:textStyle="bold"
-                android:id="@+id/car_color_id"
+                android:id="@+id/car_name_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Car color"
-                />
+                android:hint="Car name"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
         </RelativeLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

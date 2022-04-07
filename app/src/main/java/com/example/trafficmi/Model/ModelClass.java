@@ -1,15 +1,16 @@
 package com.example.trafficmi.Model;
 
 public class ModelClass {
-    String  carNameTheft,carOwnerTheft,sexTheft,carRegNumTheft,carYearOfMakeTheft,colorOfCarTheft,detailsOfTheft;
+    String  carNameTheft,carOwnerTheft,sexTheft,carRegNumTheft,carYearOfMakeTheft,colorOfCarTheft,locationTheft,detailsOfTheft;
 
-    public ModelClass(String carNameTheft, String carOwnerTheft, String sexTheft, String carRegNumTheft, String carYearOfMakeTheft, String colorOfCarTheft, String detailsOfTheft) {
+    public ModelClass(String carNameTheft, String carOwnerTheft, String sexTheft, String carRegNumTheft, String carYearOfMakeTheft, String colorOfCarTheft,String locationTheft, String detailsOfTheft) {
         this.carNameTheft = carNameTheft;
         this.carOwnerTheft = carOwnerTheft;
         this.sexTheft = sexTheft;
         this.carRegNumTheft = carRegNumTheft;
         this.carYearOfMakeTheft = carYearOfMakeTheft;
         this.colorOfCarTheft = colorOfCarTheft;
+        this.locationTheft = locationTheft;
         this.detailsOfTheft = detailsOfTheft;
     }
 
@@ -57,8 +58,17 @@ public class ModelClass {
         return colorOfCarTheft;
     }
 
+
+
     public void setColorOfCarTheft(String colorOfCarTheft) {
         this.colorOfCarTheft = colorOfCarTheft;
+    }
+    public String getLocationTheft() {
+        return locationTheft;
+    }
+
+    public void setLocationTheft(String locationTheft) {
+        this.locationTheft = locationTheft;
     }
 
     public String getDetailsOfTheft() {

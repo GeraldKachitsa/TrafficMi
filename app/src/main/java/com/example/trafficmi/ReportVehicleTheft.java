@@ -33,6 +33,7 @@ public class ReportVehicleTheft extends AppCompatActivity  {
     TextInputEditText carColor;
     TextInputEditText vehicleRegNumber;
     TextInputEditText vehicle_blue_book;
+    EditText locationTheft;
     EditText vehicleTheftDescription;
     Button reportTheftBtn;
     Button searchBtn;
@@ -59,10 +60,11 @@ public class ReportVehicleTheft extends AppCompatActivity  {
         vehicle_blue_book = (TextInputEditText) findViewById(R.id.blue_book);
         vehicleTheftDescription = (EditText) findViewById(R.id.otherOffenceDetails);
         reportTheftBtn = (Button) findViewById(R.id.reportTheftBtn);
+        locationTheft = findViewById(R.id.locationTheft);
         radioGroupSex = findViewById(R.id.radioGroupSex);
 
 
-        searchBtn = findViewById(R.id.action_search);
+//        searchBtn = findViewById(R.id.action_search);
         recyclerView = findViewById(R.id.recycler_view_id);
 
 
@@ -205,12 +207,21 @@ public class ReportVehicleTheft extends AppCompatActivity  {
             vehicleTheftDescription.setError("Name of a car cannot be empty");
         }
 
+        String location =  locationTheft.getText().toString().trim();
+
+        if (location.isEmpty()) {
+            // accidentDescription.setErrorEnabled(true);
+            locationTheft.setError("Name of a car cannot be empty");
+        }
+
         else{
 
 
             //Writing to database
 
-            VehicleTheftReport vehicleTheftReport = new VehicleTheftReport( fullNameCar, makeOfCar, colorOfVehicle, regNumberOfVehicle, CarOwner, accidentDescription, selectedSex);
+//            carNameTheft,carOwnerTheft,sexTheft,carRegNumTheft,carYearOfMakeTheft,colorOfCarTheft,locationTheft,detailsOfTheft;
+
+            VehicleTheftReport vehicleTheftReport = new VehicleTheftReport( fullNameCar, makeOfCar, colorOfVehicle, regNumberOfVehicle, CarOwner, accidentDescription, selectedSex,location);
             referenci.child(regNumberOfVehicle).setValue(vehicleTheftReport);
             Toast.makeText(getApplicationContext(), "Reported Successfully...", Toast.LENGTH_LONG).show();
 

@@ -31,9 +31,19 @@ public class DriverOffenceRecords {
         return driverName;
     }
 
+    public void setDriverName(String driverName) {
+
+        this.driverName = driverName;
+    }
+
+
     public String getLicenseNumber() {
 
         return licenseNumber;
+    }
+    public void setLicenseNumber(String licenseNumber) {
+
+        this.licenseNumber = licenseNumber;
     }
 
     public String getDriverOffenceLocation() {
@@ -41,17 +51,7 @@ public class DriverOffenceRecords {
         return driverOffenceLocation;
     }
 
-    public void setDriverName(String driverName) {
-
-        this.driverName = driverName;
-    }
-
-    public void setLicenseNumber(String licenseNumber) {
-
-        this.licenseNumber = licenseNumber;
-    }
-
-    public void setDriverOffenceLocation(String vehicleColor) {
+    public void setDriverOffenceLocation(String driverOffenceLocation) {
 
         this.driverOffenceLocation = driverOffenceLocation;
     }

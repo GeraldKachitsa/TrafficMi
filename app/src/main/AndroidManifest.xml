@@ -16,7 +16,7 @@
         android:roundIcon="@drawable/triangle"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".MoreVehicleTheftInformation"></activity>
+        <activity android:name=".FileGenerator"></activity>
         <activity android:name=".DriverOffenceData" />
         <activity android:name=".Views.ViewVehicleTheftDetails" />
         <activity android:name=".HelpCenter" />

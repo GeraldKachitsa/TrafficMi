@@ -40,7 +40,7 @@ public class ChoiceOfWorkMenu extends AppCompatActivity {
         reportAccidentScene.setVisibility(View.INVISIBLE);
         reportVehicleTheftBtn.setVisibility(View.INVISIBLE);
         reportDriverOffenceBtn.setVisibility(View.INVISIBLE);
-//
+
         viewReportstBtn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

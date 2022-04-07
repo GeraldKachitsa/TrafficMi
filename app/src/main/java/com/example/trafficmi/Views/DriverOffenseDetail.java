@@ -78,17 +78,14 @@ public class DriverOffenseDetail extends AppCompatActivity {
 
                         try{
                             HashMap<String, Object> userData = (HashMap<String, Object>) data;
-//
+
                             dataValues.add(new DriversOffenceModel(userData.get("driverName").toString(), userData.get("driverOffenceLocation").toString(), userData.get("licenseNumber").toString(), userData.get("driverOffenceDescription").toString(), userData.get("selectedSex").toString()));
-//
+
                         }catch (ClassCastException cce){
 
 
                             try{
-//
-//                                        String mString = String.valueOf(dataMap.get(key));
-////
-//                                        tvView.setText(mString);
+
 
 
                             }catch (ClassCastException cce2){

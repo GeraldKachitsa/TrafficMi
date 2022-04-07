@@ -196,14 +196,29 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <EditText
+            android:id="@+id/locationTheft"
+            android:layout_width="match_parent"
+            android:hint="Location"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textColorHint="@color/dim_grey"
+            app:startIconTint="@color/dim_grey"
+            app:startIconDrawable="@drawable/ic_location"
+            android:layout_below="@+id/carColor"
+            android:gravity="start|top"
+            android:inputType="textMultiLine" />
+
+        <EditText
             android:id="@+id/otherOffenceDetails"
             android:layout_width="match_parent"
             android:hint="Other details"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:layout_below="@+id/carColor"
+            android:layout_below="@+id/locationTheft"
+            android:textColorHint="@color/dim_grey"
             android:gravity="start|top"
             android:inputType="textMultiLine" />
+
 
         <Button
             android:layout_below="@+id/otherOffenceDetails"

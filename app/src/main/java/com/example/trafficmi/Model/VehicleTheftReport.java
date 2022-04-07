@@ -4,13 +4,13 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class VehicleTheftReport {
 
-    String  carName, carMake, carColor, vehicleRegNumber,vehicle_blue_book,vehicleTheftDescription, selectedSex;
+    String  carName, carMake, carColor, vehicleRegNumber,vehicle_blue_book,vehicleTheftDescription, selectedSex,location;
 
     public VehicleTheftReport() {
 
     }
 
-    public VehicleTheftReport( String  carName, String  carMake, String carColor, String vehicleRegNumber, String vehicle_blue_book, String vehicleTheftDescription, String selectedSex) {
+    public VehicleTheftReport( String  carName, String  carMake, String carColor, String vehicleRegNumber, String vehicle_blue_book, String vehicleTheftDescription, String selectedSex,String location) {
 
         this.carName = carName;
         this.carMake = carMake;
@@ -19,6 +19,7 @@ public class VehicleTheftReport {
         this.vehicle_blue_book = vehicle_blue_book;
         this.vehicleTheftDescription = vehicleTheftDescription;
         this.selectedSex = selectedSex;
+        this.location = location;
 
     }
 
@@ -68,6 +69,14 @@ public class VehicleTheftReport {
 
     public void setVehicle_blue_book(String vehicle_blue_book) {
         this.vehicle_blue_book = vehicle_blue_book;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public String getVehicleTheftDescription() {

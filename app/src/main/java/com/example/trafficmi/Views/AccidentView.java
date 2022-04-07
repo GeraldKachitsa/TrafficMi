@@ -33,6 +33,7 @@ public class AccidentView extends AppCompatActivity {
 
     TextInputEditText search_id;
     RecyclerView recyclerView;
+
     // Firebase database
     FirebaseDatabase root = FirebaseDatabase.getInstance();
     DatabaseReference reference = root.getReference().child("AccidentSceneRecords");
@@ -78,17 +79,14 @@ public class AccidentView extends AppCompatActivity {
 
                         try{
                             HashMap<String, Object> userData = (HashMap<String, Object>) data;
-//
+
                             dataValues.add(new AccidentSceneModel(userData.get("vehicleRegNumber").toString(), userData.get("vehicleColor").toString(), userData.get("nameOfVehicle").toString(), userData.get("make").toString(), userData.get("otherDetails").toString()));
-//
+
                         }catch (ClassCastException cce){
 
 
                             try{
-//
-//                                        String mString = String.valueOf(dataMap.get(key));
-////
-//                                        tvView.setText(mString);
+
 
 
                             }catch (ClassCastException cce2){

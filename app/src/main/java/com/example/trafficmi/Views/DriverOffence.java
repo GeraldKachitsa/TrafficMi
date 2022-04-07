@@ -91,7 +91,7 @@ public class DriverOffence extends AppCompatActivity {
                         Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
 
                     //permission granted
-                    getLocation();
+//                    getLocation();
                 } else {
                     //when permission denied
                     ActivityCompat.requestPermissions(DriverOffence.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 12);
@@ -116,33 +116,33 @@ public class DriverOffence extends AppCompatActivity {
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
-        fusedLocationProviderClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
-            @Override
-            public void onComplete(@NonNull Task<Location> task) {
-                //initialize location
-
-                Location location = task.getResult();
-                if (location != null) {
-
-
-                    try {
-
-                        //initialize geocoder
-                        Geocoder geocoder = new Geocoder(DriverOffence.this, Locale.getDefault());
-
-                        //initialize address list
-                        List<Address> addresses = geocoder.getFromLocation(
-                                location.getLatitude(), location.getLongitude(), 4
-                        );
-                        Toast.makeText(DriverOffence.this, "hie hie", Toast.LENGTH_SHORT).show();
-
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        });
-    }
+//        fusedLocationProviderClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
+//            @Override
+//            public void onComplete(@NonNull Task<Location> task) {
+//                //initialize location
+//
+//                Location location = task.getResult();
+//                if (location != null) {
+//
+//
+//                    try {
+//
+//                        //initialize geocoder
+//                        Geocoder geocoder = new Geocoder(DriverOffence.this, Locale.getDefault());
+//
+//                        //initialize address list
+//                        List<Address> addresses = geocoder.getFromLocation(
+//                                location.getLatitude(), location.getLongitude(), 4
+//                        );
+//                        Toast.makeText(DriverOffence.this, "hie hie", Toast.LENGTH_SHORT).show();
+//
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }
+//        });
+  }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

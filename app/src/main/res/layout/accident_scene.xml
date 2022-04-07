@@ -32,6 +32,7 @@
                 android:gravity="center"
                 android:text="ACCIDENT SCENE"
                 android:textStyle="bold"
+                android:textColor="@color/white"
                 />
         </RelativeLayout>
 
