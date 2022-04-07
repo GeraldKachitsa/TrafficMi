@@ -31,6 +31,7 @@ import com.example.trafficmi.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DatabaseReference;
@@ -48,10 +49,11 @@ public class DriverOffence extends AppCompatActivity {
     private Button updateDriverRecordsBtn;
     RadioGroup offenceRadioGroup;
     RadioButton radioSexButton;
+    String lat, longt;
 
 
     private TextView textView;
-    FusedLocationProviderClient fusedLocationProviderClient;
+
 
     //toolBar
     Toolbar driverOffenceToolBar;
@@ -60,7 +62,7 @@ public class DriverOffence extends AppCompatActivity {
 
     FirebaseDatabase root;
     DatabaseReference referenci;
-    private Object FusedLocationProviderClient;
+    private  FusedLocationProviderClient fusedLocationProviderClient;
 
 
     @Override
@@ -75,7 +77,7 @@ public class DriverOffence extends AppCompatActivity {
         textView = findViewById(R.id.textView1);
         offenceRadioGroup = findViewById(R.id.offenceRadioGroup);
         // fused location initialization
-        FusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+        fusedLocationProviderClient = new FusedLocationProviderClient(this);
 
         setSupportActionBar(driverOffenceToolBar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -89,7 +91,13 @@ public class DriverOffence extends AppCompatActivity {
                 //check permission
                 if (ActivityCompat.checkSelfPermission(DriverOffence.this,
                         Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-
+                   fusedLocationProviderClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
+                       @Override
+                       public void onSuccess(Location location) {
+                           lat =  String.valueOf(location.getLatitude());
+                           longt  = String.valueOf(location.getLongitude());
+                       }
+                   });
                     //permission granted
 //                    getLocation();
                 } else {
@@ -251,7 +259,7 @@ public class DriverOffence extends AppCompatActivity {
         else{
 
             //Writing to database
-           com.example.trafficmi.DriverOffenceRecords driverOffenceRecords = new com.example.trafficmi.DriverOffenceRecords(fullNameDriver, driverLicense, locationOfOffence,offenceDescription, selectedSex);
+           com.example.trafficmi.DriverOffenceRecords driverOffenceRecords = new com.example.trafficmi.DriverOffenceRecords(fullNameDriver, driverLicense, locationOfOffence,offenceDescription, selectedSex,  lat,longt);
             referenci.child(driverLicense).setValue(driverOffenceRecords);
            driverOffenceLocation.setError("");
            Toast.makeText(getApplicationContext(),
