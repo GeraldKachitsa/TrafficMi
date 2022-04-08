@@ -221,10 +221,10 @@
 
 
         <Button
-            android:layout_below="@+id/otherOffenceDetails"
             android:id="@+id/reportTheftBtn"
-            android:layout_width="match_parent"
-            android:layout_height="65dp"
+            android:layout_width="361dp"
+            android:layout_height="88dp"
+            android:layout_below="@+id/otherOffenceDetails"
             android:layout_marginBottom="20dp"
             android:text="Report"
             app:backgroundTint="@color/dim_grey"

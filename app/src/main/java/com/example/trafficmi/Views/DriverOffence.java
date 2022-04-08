@@ -74,7 +74,7 @@ public class DriverOffence extends AppCompatActivity {
         driverOffenceLocation = (TextInputEditText) findViewById(R.id.car_name_id);
         driverOffenceDescription = (EditText) findViewById(R.id.otherOffenceDetails);
         driverOffenceToolBar = (Toolbar) findViewById(R.id.driverOffenceToolBar);
-        textView = findViewById(R.id.textView1);
+//        textView = findViewById(R.id.textView1);
         offenceRadioGroup = findViewById(R.id.offenceRadioGroup);
         // fused location initialization
         fusedLocationProviderClient = new FusedLocationProviderClient(this);
@@ -94,8 +94,8 @@ public class DriverOffence extends AppCompatActivity {
                    fusedLocationProviderClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
                        @Override
                        public void onSuccess(Location location) {
-                           lat =  String.valueOf(location.getLatitude());
-                           longt  = String.valueOf(location.getLongitude());
+                           lat =  "" + location.getLatitude();
+                           longt  = "" +location.getLongitude();
                        }
                    });
                     //permission granted
@@ -257,6 +257,7 @@ public class DriverOffence extends AppCompatActivity {
 
 
         else{
+           Toast.makeText(this, lat, Toast.LENGTH_SHORT).show();
 
             //Writing to database
            com.example.trafficmi.DriverOffenceRecords driverOffenceRecords = new com.example.trafficmi.DriverOffenceRecords(fullNameDriver, driverLicense, locationOfOffence,offenceDescription, selectedSex,  lat,longt);

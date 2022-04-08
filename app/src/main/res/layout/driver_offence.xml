@@ -162,11 +162,10 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
-
         <Button
             android:id="@+id/goToNextOffenceBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="382dp"
+            android:layout_height="63dp"
             android:layout_below="@id/otherOffenceDetails"
 
             android:layout_marginTop="20dp"
@@ -189,19 +188,19 @@
             android:hint="Other details"
             android:inputType="textMultiLine" />
 
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/goToNextOffenceBtn"
+<!--        <TextView-->
+<!--            android:id="@+id/textView1"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/goToNextOffenceBtn"-->
 
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:text="SEE"
-            android:textColor="@color/design_default_color_error"
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:gravity="center"-->
+<!--            android:text="SEE"-->
+<!--            android:textColor="@color/design_default_color_error"-->
 
 
-            tools:ignore="MissingConstraints" />
+<!--            tools:ignore="MissingConstraints" />-->
 
 
 

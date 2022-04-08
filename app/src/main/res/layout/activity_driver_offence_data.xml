@@ -41,6 +41,7 @@
         android:layout_below="@+id/accidentSceneToolBar"
         >
         <RelativeLayout
+            android:id="@+id/loc_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="25dp">
@@ -80,49 +81,59 @@
                 android:text="License Number"
                 android:textColor="@color/dim_grey"
                 android:textStyle="bold" />
+            <RelativeLayout
+                android:background="@color/purple_500"
+                android:id="@+id/area"
+                android:layout_below="@+id/sexTheft"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/carRegNumTheft"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="0dp"
+                    android:padding="20dp"
+                    android:text="Location:"
+                    android:textColor="@color/dim_grey"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lat"
+                    android:text="Latitude"
+                    android:textStyle="bold"
+                    android:layout_marginStart="40dp"
+                    android:layout_alignBottom="@id/carRegNumTheft"
+                    />
+
+                <TextView
+                    android:id="@+id/longt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:textStyle="bold"
+                    android:layout_below="@id/lat"
+                    android:text="Longitude" />
+
+
+            </RelativeLayout>
+
             <TextView
-                android:id="@+id/carRegNumTheft"
+                android:id="@+id/carYearOfMakeTheft"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/sexTheft"
-                android:layout_marginTop="0dp"
-                android:background="@color/purple_500"
+                android:layout_below="@id/area"
                 android:padding="20dp"
-                android:text="Location:"
+                android:text="Other Details:"
                 android:textColor="@color/dim_grey"
                 android:textSize="18sp"
                 android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/lat"
-                android:text="Latitude"
-                android:layout_marginStart="40dp"
-                android:layout_alignBottom="@id/carRegNumTheft"
-                />
-
-            <TextView
-                android:id="@+id/lon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignEnd="@id/lat"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginEnd="-150dp"
-                android:layout_alignBottom="@id/carRegNumTheft"
-                android:text="Longitude" />
-
-            <TextView
-                android:text="Other Details:"
-                android:id="@+id/carYearOfMakeTheft"
-                android:layout_below="@+id/carRegNumTheft"
-                android:textStyle="bold"
-                android:textColor="@color/dim_grey"
-                android:padding="20dp"
-                android:textSize="18sp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
 
         </RelativeLayout>
 
