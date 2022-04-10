@@ -30,7 +30,14 @@ public class DriverOffenceRecords {
         this.lat = lat;
         this.longt = longt;
     }
-
+    public DriverOffenceRecords(String driverName, String licenseNumber, String driverOffenceLocation, String driverOffenceDescription,String lat, String longt) {
+        this.driverName =driverName;
+        this.licenseNumber = licenseNumber;
+        this.driverOffenceLocation =driverOffenceLocation;
+        this.driverOffenceDescription = driverOffenceDescription;
+        this.lat = lat;
+        this.longt = longt;
+    }
     public String getDriverName() {
 
         return driverName;

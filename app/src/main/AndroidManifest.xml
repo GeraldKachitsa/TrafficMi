@@ -2,11 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.trafficmi">
 
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- <uses-permission android:name="com.example.permission.MAPS_RECEIVE"/> -->
+
     <uses-feature android:name="android.hardware.type.watch" />
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -16,14 +17,6 @@
         android:roundIcon="@drawable/triangle"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".FileGenerator"></activity>
-        <activity android:name=".DriverOffenceData" />
-        <activity android:name=".Views.ViewVehicleTheftDetails" />
-        <activity android:name=".HelpCenter" />
-        <activity android:name=".RoadTrafficRepo" /> <!-- <uses-library -->
-        <!-- android:name="com.google.android.wearable" -->
-        <!-- android:required="true" /> -->
-        <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.
         -->
@@ -31,14 +24,23 @@
             android:name="com.google.android.wearable.standalone"
             android:value="true" />
 
-        <activity
-            android:name=".Views.AccidentView"
-            android:label="@string/title_activity_accident_view">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".FileGenerator" />
+        <activity android:name=".Views.AnalyticsClass" />
+        <activity android:name=".DriverOffenceData" />
+        <activity android:name=".Views.ViewVehicleTheftDetails" />
+        <activity android:name=".HelpCenter" />
+        <activity android:name=".RoadTrafficRepo" />
+        <activity android:name=".Views.AccidentView" />
+
+<!--        <activity-->
+<!--            android:name=".Views.AccidentView"-->
+<!--            android:label="@string/title_activity_accident_view">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
         <activity android:name=".Views.ChoiceOfWorkMenu" />
+        <activity android:name=".Views.VehicleTheftData" />
         <activity
             android:name=".Views.ViewVehicleTheft"
             android:parentActivityName=".ReportVehicleTheft" />

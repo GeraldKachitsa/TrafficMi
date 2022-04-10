@@ -16,6 +16,14 @@ public class DriversOffenceModel {
 //        this.lisenceNumber = lisenceNumber;
 //    }
 
+    public DriversOffenceModel(String disPayName, String driverOffenceLocation, String lisenceNumber, String driverOffenceDescription, String selectedSex) {
+        this.disPayName = disPayName;
+        this.driverOffenceLocation = driverOffenceLocation;
+        this.lisenceNumber = lisenceNumber;
+        this.driverOffenceDescription = driverOffenceDescription;
+        this.selectedSex = selectedSex;
+    }
+
     public DriversOffenceModel(String disPayName, String driverOffenceLocation, String lisenceNumber, String driverOffenceDescription, String selectedSex,String lat,String longt) {
         this.disPayName = disPayName;
         this.driverOffenceLocation = driverOffenceLocation;
@@ -25,7 +33,6 @@ public class DriversOffenceModel {
         this.lat = lat;
         this.longt = longt;
     }
-
 
 
     public String getDriverOffenceDescription() {

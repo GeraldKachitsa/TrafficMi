@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.example.trafficmi.Views.ChoiceOfWorkMenu;
 import com.example.trafficmi.Views.DriverOffence;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
     Button chiefTrafficOfficerLogInBtn;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
 
         // Animation
         top_animation = AnimationUtils.loadAnimation(this,R.anim.top_animation);
@@ -46,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(MainActivity.this, ChoiceOfWorkMenu.class);
+                Intent intent = new Intent(MainActivity.this, LogIn.class);
                 startActivity(intent);
                 finish();
             }

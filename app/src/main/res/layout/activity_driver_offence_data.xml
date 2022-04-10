@@ -48,52 +48,51 @@
 
             <TextView
                 android:text="Driver's Name:"
-                android:id="@+id/carNameTheft"
+                android:id="@+id/driversN"
                 android:paddingTop="40dp"
                 android:padding="20dp"
                 android:textColor="@color/dim_grey"
                 android:textStyle="bold"
                 android:textSize="18sp"
-                android:background="#95D1CC"
+                android:background="#A8DDF4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
                 android:text="Sex"
-                android:id="@+id/carOwnerTheft"
-                android:layout_below="@+id/carNameTheft"
+                android:id="@+id/sexId"
+                android:layout_below="@+id/driversN"
                 android:textStyle="bold"
                 android:textColor="@color/dim_grey"
                 android:paddingTop="40dp"
                 android:padding="20dp"
                 android:textSize="18sp"
-                android:background="#F4AEF3"
+                android:background="#C5E6F4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
             <TextView
-                android:id="@+id/sexTheft"
+                android:id="@+id/license"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/carOwnerTheft"
-                android:background="#DFDFDE"
+                android:layout_below="@+id/sexId"
+                android:background="#D8EAF3"
                 android:textSize="18sp"
                 android:padding="20dp"
                 android:text="License Number"
                 android:textColor="@color/dim_grey"
                 android:textStyle="bold" />
             <RelativeLayout
-                android:background="@color/purple_500"
+                android:background="#E1EDF3"
                 android:id="@+id/area"
-                android:layout_below="@+id/sexTheft"
+                android:layout_below="@+id/license"
                 android:padding="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/carRegNumTheft"
+                    android:id="@+id/location"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
                     android:layout_marginTop="0dp"
                     android:padding="20dp"
                     android:text="Location:"
@@ -101,34 +100,35 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/lat"
-                    android:text="Latitude"
-                    android:textStyle="bold"
-                    android:layout_marginStart="40dp"
-                    android:layout_alignBottom="@id/carRegNumTheft"
-                    />
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:id="@+id/lat"-->
+<!--                    android:text="Latitude"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:layout_marginStart="40dp"-->
+<!--                    android:layout_alignBottom="@id/carRegNumTheft"-->
+<!--                    />-->
 
-                <TextView
-                    android:id="@+id/longt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginLeft="20dp"
-                    android:textStyle="bold"
-                    android:layout_below="@id/lat"
-                    android:text="Longitude" />
+<!--                <TextView-->
+<!--                    android:id="@+id/longt"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="40dp"-->
+<!--                    android:layout_marginLeft="20dp"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:layout_below="@id/lat"-->
+<!--                    android:text="Longitude" />-->
 
 
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/carYearOfMakeTheft"
+                android:background="#E7F0F4"
+                android:id="@+id/otherDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/area"
+                android:layout_below="@+id/area"
                 android:padding="20dp"
                 android:text="Other Details:"
                 android:textColor="@color/dim_grey"

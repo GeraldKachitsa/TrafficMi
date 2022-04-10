@@ -210,11 +210,14 @@ public class DriverOffence extends AppCompatActivity {
        // get selected radio button from radioGroup
        int selectedId = offenceRadioGroup.getCheckedRadioButtonId();
 
+       Toast.makeText(this, selectedId+"", Toast.LENGTH_SHORT).show();
        // find the radiobutton by returned id
        radioSexButton = (RadioButton) findViewById(selectedId);
 
 
-       String selectedSex = radioSexButton.getText().toString();
+     //  String selectedSex = radioSexButton.getText().toString();
+
+      // Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
 
 //
 //       if (selectedId == -1){
@@ -229,49 +232,50 @@ public class DriverOffence extends AppCompatActivity {
 
         String fullNameDriver = fullNameOfDriver.getText().toString().trim();
         if(fullNameDriver.isEmpty()){
-           fullNameOfDriver.setError("Driver name cannot be empty");
+//           fullNameOfDriver.setError("Driver name cannot be empty");
         }else{
-            fullNameOfDriver.setError("");
+//            fullNameOfDriver.setError("");
 
         }
         String driverLicense = driverLicenseNumber.getText().toString().trim();
        if(driverLicense.isEmpty()){
-            driverLicenseNumber.setError("");
-            driverLicenseNumber.setError("License number cannot be empty");
+//            driverLicenseNumber.setError("");
+//            driverLicenseNumber.setError("License number cannot be empty");
         }else{
-            driverLicenseNumber.setError("");
+//            driverLicenseNumber.setError("");
 
         }
         String locationOfOffence = driverOffenceLocation.getText().toString().trim();
         if(locationOfOffence.isEmpty()){
-            driverOffenceLocation.setError("");
-            driverOffenceLocation.setError("address of driver cannot be empty");
+//            driverOffenceLocation.setError("");
+//            driverOffenceLocation.setError("address of driver cannot be empty");
         }
 
        String offenceDescription = driverOffenceDescription.getText().toString().trim();
 
        if (offenceDescription.isEmpty()) {
            // accidentDescription.setErrorEnabled(true);
-           driverOffenceDescription.setError("Offence description cannot be empty");
+//           driverOffenceDescription.setError("Offence description cannot be empty");
        }
 
 
         else{
-           Toast.makeText(this, lat, Toast.LENGTH_SHORT).show();
+//           Toast.makeText(this, lat, Toast.LENGTH_SHORT).show();
 
             //Writing to database
-           com.example.trafficmi.DriverOffenceRecords driverOffenceRecords = new com.example.trafficmi.DriverOffenceRecords(fullNameDriver, driverLicense, locationOfOffence,offenceDescription, selectedSex,  lat,longt);
+           com.example.trafficmi.DriverOffenceRecords driverOffenceRecords = new com.example.trafficmi.DriverOffenceRecords(fullNameDriver, driverLicense, locationOfOffence,offenceDescription,  lat,longt);
             referenci.child(driverLicense).setValue(driverOffenceRecords);
            driverOffenceLocation.setError("");
            Toast.makeText(getApplicationContext(),
                     "Records Successfully updated",
                     Toast.LENGTH_LONG)
                    .show();
+
            fullNameOfDriver.setText("");
             driverLicenseNumber.setText("");
             driverOffenceLocation.setText("");
            driverOffenceDescription.setText("");
-           startActivity( new Intent(this, DriverOffenseDetail.class));
+           //startActivity( new Intent(this, DriverOffenseDetail.class));
 
         }
     }

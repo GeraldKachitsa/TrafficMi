@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -44,8 +45,9 @@ public class AccidentView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accident_view);
+//        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+        reference.keepSynced(true);
         dataValues = new ArrayList<AccidentSceneModel>();
-
         recyclerView = findViewById(R.id.rec_accident);
         accidentAdapter = new AccidentAdapter(this, dataValues);
         recyclerView.setHasFixedSize(true);

@@ -52,8 +52,8 @@ public class DriverOffinceAdapter extends RecyclerView.Adapter<DriverOffinceAdap
                 intent.putExtra("driverLicenseNumber", driversOffenceModel.getLisenceNumber().toString());
                 intent.putExtra("offenceLocation", driversOffenceModel.getDriverOffenceLocation().toString());
                 intent.putExtra("offenceDescription", driversOffenceModel.getDriverOffenceDescription().toString());
-                intent.putExtra("latitude", driversOffenceModel.getLat().toString());
-                intent.putExtra("longitude", driversOffenceModel.getLongt().toString());
+//                intent.putExtra("latitude", driversOffenceModel.getLat().toString());
+//                intent.putExtra("longitude", driversOffenceModel.getLongt().toString());
 
                 context.startActivity(intent);
             }

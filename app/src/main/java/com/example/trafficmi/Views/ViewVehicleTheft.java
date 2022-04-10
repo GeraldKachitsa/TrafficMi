@@ -51,7 +51,7 @@ public class ViewVehicleTheft extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(vehicleTheftAdapter);
-
+        reference.keepSynced(true);
         search_id_2 = (TextInputEditText) findViewById(R.id.search_field_id_2);
 
 

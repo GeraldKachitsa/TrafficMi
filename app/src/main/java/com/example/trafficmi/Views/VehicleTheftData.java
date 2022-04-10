@@ -24,7 +24,6 @@ public class VehicleTheftData extends AppCompatActivity {
         colorOfCarTheft = findViewById(R.id.colorOfCarTheft);
         locationTheft = findViewById(R.id.locationTheft);
         detailsOfTheft = findViewById(R.id.detailsOfTheft);
-
         Intent intent = getIntent();
         carNameTheft.setText("Car Name :" + " " + " " + intent.getStringExtra("carNameTheft"));
         carOwnerTheft.setText("Owner of Car :" + " " + " " + intent.getStringExtra("carOwnerTheft"));

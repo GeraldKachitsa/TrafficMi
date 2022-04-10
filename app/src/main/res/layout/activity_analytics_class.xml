@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="20dp"
+    tools:context=".Views.AnalyticsClass"
+    tools:deviceIds="wear">
+
+ <TableLayout
+
+     android:layout_marginTop="50dp"
+     android:id="@+id/id_for_bottom_content"
+     android:layout_marginBottom="10dp"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:stretchColumns="1"
+     >
+     <TableRow android:background="#96D7F4" android:padding="10dp" android:layout_marginBottom="5dp">
+         <TextView
+
+             android:gravity="left"
+             android:textStyle="bold"
+             android:text="Driver Offenses"
+             android:padding="3dp" />
+         <TextView
+
+             android:textStyle="bold"
+             android:text="Vehicle Theft"
+             android:gravity="center"
+             android:padding="3dp" />
+         <TextView
+
+             android:gravity="right"
+             android:textStyle="bold"
+             android:text="Accident Scene"
+             android:padding="3dp" />
+     </TableRow>
+
+     <TableRow android:background="#D3EBF6"
+
+         android:padding="10dp" android:layout_marginBottom="5dp">
+         <TextView
+             android:id="@+id/offences_id"
+             android:gravity="center"
+             android:textStyle="bold"
+             android:text="0"
+             android:padding="3dp" />
+         <TextView
+             android:id="@+id/vehicle_theft_id"
+             android:textStyle="bold"
+             android:text="0"
+             android:gravity="center"
+             android:padding="3dp" />
+         <TextView
+             android:id="@+id/accident_id"
+             android:gravity="center"
+             android:textStyle="bold"
+             android:text="0"
+             android:padding="3dp" />
+     </TableRow>
+ </TableLayout>
+
+<!--    <com.jjoe64.graphview.GraphView-->
+<!--        android:layout_below="@id/id_for_bottom_content"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="200dip"-->
+<!--        android:id="@+id/graph" />-->
+
+
+</RelativeLayout>

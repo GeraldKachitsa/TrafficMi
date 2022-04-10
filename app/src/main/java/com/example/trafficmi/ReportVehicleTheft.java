@@ -211,7 +211,7 @@ public class ReportVehicleTheft extends AppCompatActivity  {
 
         if (location.isEmpty()) {
             // accidentDescription.setErrorEnabled(true);
-            locationTheft.setError("Name of a car cannot be empty");
+//            locationTheft.setError("Name of a car cannot be empty");
         }
 
         else{

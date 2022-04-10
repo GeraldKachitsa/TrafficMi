@@ -14,7 +14,7 @@ import com.example.trafficmi.ReportVehicleTheft;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ChoiceOfWorkMenu extends AppCompatActivity {
-    private Button driverOffenceBtn2, accidentSceneBtn, viewVehicleTheftBtn;
+    private Button driverOffenceBtn2, accidentSceneBtn, viewVehicleTheftBtn, analytics;
 
     private FloatingActionButton reportVehicleTheftBtn, reportDriverOffenceBtn,reportAccidentScene, viewReportstBtn2;
 
@@ -24,7 +24,6 @@ public class ChoiceOfWorkMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choice_of_work_menu);
-
 
         driverOffenceBtn2= (Button) findViewById(R.id.driverOffenceBtn);
 
@@ -36,7 +35,7 @@ public class ChoiceOfWorkMenu extends AppCompatActivity {
         reportAccidentScene = findViewById(R.id.fab_control_as);
         reportDriverOffenceBtn = findViewById(R.id.fab_control_do);
         reportVehicleTheftBtn = findViewById(R.id.fab_control_vt);
-
+        analytics = findViewById(R.id.analytics);
         reportAccidentScene.setVisibility(View.INVISIBLE);
         reportVehicleTheftBtn.setVisibility(View.INVISIBLE);
         reportDriverOffenceBtn.setVisibility(View.INVISIBLE);
@@ -49,7 +48,6 @@ public class ChoiceOfWorkMenu extends AppCompatActivity {
                     reportVehicleTheftBtn.show();
                     reportDriverOffenceBtn.show();
                     flag = false;
-
                 }else {
                     flag = true;
                     reportAccidentScene.hide();
@@ -69,6 +67,14 @@ public class ChoiceOfWorkMenu extends AppCompatActivity {
             }
         });
 
+        analytics.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(ChoiceOfWorkMenu.this, AnalyticsClass.class));
+
+            }
+        });
         reportDriverOffenceBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 
 import com.example.trafficmi.AdapterPackage.DriverOffinceAdapter;
@@ -44,13 +45,13 @@ public class DriverOffenseDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver_offense_detail);
         dataValues = new ArrayList<DriversOffenceModel>();
-
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
         recyclerView = findViewById(R.id.recycler_view);
         driverOffinceAdapter = new DriverOffinceAdapter(this, dataValues);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(driverOffinceAdapter);
-
+        reference.keepSynced(true);
         searchDriver_id = (TextInputEditText) findViewById(R.id.searchDriver_field_id);
 
         //driver_offence_fab_control
@@ -76,10 +77,14 @@ public class DriverOffenseDetail extends AppCompatActivity {
 
                         Object data = dataMap.get(key);
 
+
                         try{
                             HashMap<String, Object> userData = (HashMap<String, Object>) data;
+                            String vr=userData.get("driverName").toString();
+                            Log.i("drivername",vr);
 
-                            dataValues.add(new DriversOffenceModel(userData.get("driverName").toString(), userData.get("driverOffenceLocation").toString(), userData.get("licenseNumber").toString(), userData.get("driverOffenceDescription").toString(), userData.get("selectedSex").toString(),userData.get("lat").toString(),userData.get("longt").toString()));
+                            dataValues.add(new DriversOffenceModel(userData.get("driverName").toString(),userData.get("driverOffenceDescription").toString(), userData.get("driverOffenceLocation").toString(), userData.get("licenseNumber").toString(), userData.get("selectedSex").toString()));
+//                            dataValues.add(new DriversOffenceModel(userData.get("driverName").toString(),userData.get("driverOffenceDescription").toString(), userData.get("driverOffenceLocation").toString(), userData.get("licenseNumber").toString(), userData.get("selectedSex").toString(),userData.get("latitude").toString(),userData.get("longitude").toString()));
 
                         }catch (ClassCastException cce){
 
