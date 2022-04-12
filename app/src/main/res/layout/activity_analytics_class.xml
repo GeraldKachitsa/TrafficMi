@@ -40,8 +40,8 @@
      </TableRow>
 
      <TableRow android:background="#D3EBF6"
-
-         android:padding="10dp" android:layout_marginBottom="5dp">
+         android:padding="10dp"
+         android:layout_marginBottom="5dp">
          <TextView
              android:id="@+id/offences_id"
              android:gravity="center"
@@ -68,6 +68,17 @@
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="200dip"-->
 <!--        android:id="@+id/graph" />-->
+<Button
+    android:id="@+id/for_location"
+    android:layout_marginTop="150dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
 
-
+    <TextView
+        android:gravity="center"
+        android:hint="locations"
+        android:id="@+id/sample_id"
+        android:layout_below="@+id/for_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </RelativeLayout>

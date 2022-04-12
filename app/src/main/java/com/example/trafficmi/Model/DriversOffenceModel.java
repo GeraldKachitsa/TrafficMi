@@ -2,36 +2,29 @@ package com.example.trafficmi.Model;
 
 public class DriversOffenceModel {
     private String disPayName;
-    private String driverOffenceLocation;
     private String lisenceNumber;
     private String driverOffenceDescription;
     private String selectedSex;
     private String lat;
     private String longt;
 
+    private String addres;
 
-//    public DriversOffenceModel(String disPayName, String driverOffenceLocation, String lisenceNumber) {
-//        this.disPayName = disPayName;
-//        this.driverOffenceLocation = driverOffenceLocation;
-//        this.lisenceNumber = lisenceNumber;
-//    }
-
-    public DriversOffenceModel(String disPayName, String driverOffenceLocation, String lisenceNumber, String driverOffenceDescription, String selectedSex) {
+    public DriversOffenceModel(String disPayName, String lisenceNumber, String driverOffenceDescription, String selectedSex) {
         this.disPayName = disPayName;
-        this.driverOffenceLocation = driverOffenceLocation;
         this.lisenceNumber = lisenceNumber;
         this.driverOffenceDescription = driverOffenceDescription;
         this.selectedSex = selectedSex;
     }
 
-    public DriversOffenceModel(String disPayName, String driverOffenceLocation, String lisenceNumber, String driverOffenceDescription, String selectedSex,String lat,String longt) {
+    public DriversOffenceModel(String disPayName,  String driverOffenceDescription, String lisenceNumber, String selectedSex,String lat,String longt, String addres) {
         this.disPayName = disPayName;
-        this.driverOffenceLocation = driverOffenceLocation;
         this.lisenceNumber = lisenceNumber;
         this.driverOffenceDescription = driverOffenceDescription;
         this.selectedSex = selectedSex;
         this.lat = lat;
         this.longt = longt;
+        this.addres = addres;
     }
 
 
@@ -51,6 +44,14 @@ public class DriversOffenceModel {
         this.selectedSex = selectedSex;
     }
 
+    public String getAddres() {
+        return addres;
+    }
+
+    public void setAddres(String addres) {
+        this.addres = addres;
+    }
+
 
     public String getDisPayName() {
         return disPayName;
@@ -58,14 +59,6 @@ public class DriversOffenceModel {
 
     public void setDisPayName(String disPayName) {
         this.disPayName = disPayName;
-    }
-
-    public String getDriverOffenceLocation() {
-        return driverOffenceLocation;
-    }
-
-    public void setDriverOffenceLocation(String driverOffenceLocation) {
-        this.driverOffenceLocation = driverOffenceLocation;
     }
 
     public String getLisenceNumber() {

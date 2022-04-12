@@ -128,7 +128,7 @@ public class AccidentScene extends AppCompatActivity {
         referenci = root.getReference();
         referenci = root.getReference(  "AccidentSceneRecords");
 
-        //offline capability
+        //firebase offline capability
         referenci.keepSynced(true);
 
 

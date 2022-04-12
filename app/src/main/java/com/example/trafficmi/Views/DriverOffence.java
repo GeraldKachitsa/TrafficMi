@@ -44,12 +44,12 @@ import java.util.Locale;
 public class DriverOffence extends AppCompatActivity {
     private TextInputEditText fullNameOfDriver;
     private TextInputEditText driverLicenseNumber;
-    private TextInputEditText driverOffenceLocation;
+
     EditText driverOffenceDescription;
     private Button updateDriverRecordsBtn;
     RadioGroup offenceRadioGroup;
     RadioButton radioSexButton;
-    String lat, longt;
+    String longitude, latitude, address;
 
 
     private TextView textView;
@@ -69,9 +69,8 @@ public class DriverOffence extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.driver_offence);
-        fullNameOfDriver = (TextInputEditText) findViewById(R.id.vehicleRegNumber_id);
-        driverLicenseNumber = (TextInputEditText) findViewById(R.id.carMake_id);
-        driverOffenceLocation = (TextInputEditText) findViewById(R.id.car_name_id);
+        fullNameOfDriver = (TextInputEditText) findViewById(R.id.driverName);
+        driverLicenseNumber = (TextInputEditText) findViewById(R.id.licenseNum);
         driverOffenceDescription = (EditText) findViewById(R.id.otherOffenceDetails);
         driverOffenceToolBar = (Toolbar) findViewById(R.id.driverOffenceToolBar);
 //        textView = findViewById(R.id.textView1);
@@ -88,23 +87,13 @@ public class DriverOffence extends AppCompatActivity {
         updateDriverRecordsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //check permission
-                if (ActivityCompat.checkSelfPermission(DriverOffence.this,
-                        Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                   fusedLocationProviderClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
-                       @Override
-                       public void onSuccess(Location location) {
-                           lat =  "" + location.getLatitude();
-                           longt  = "" +location.getLongitude();
-                       }
-                   });
-                    //permission granted
-//                    getLocation();
-                } else {
-                    //when permission denied
-                    ActivityCompat.requestPermissions(DriverOffence.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 12);
-                }
 
+                if (ActivityCompat.checkSelfPermission(DriverOffence.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+
+                    getLocation();
+                }else {
+                    ActivityCompat.requestPermissions(DriverOffence.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 50);
+                }
                 driverOffenceRecords();
 
 
@@ -117,40 +106,28 @@ public class DriverOffence extends AppCompatActivity {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
+
             return;
         }
-//        fusedLocationProviderClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
-//            @Override
-//            public void onComplete(@NonNull Task<Location> task) {
-//                //initialize location
-//
-//                Location location = task.getResult();
-//                if (location != null) {
-//
-//
-//                    try {
-//
-//                        //initialize geocoder
-//                        Geocoder geocoder = new Geocoder(DriverOffence.this, Locale.getDefault());
-//
-//                        //initialize address list
-//                        List<Address> addresses = geocoder.getFromLocation(
-//                                location.getLatitude(), location.getLongitude(), 4
-//                        );
-//                        Toast.makeText(DriverOffence.this, "hie hie", Toast.LENGTH_SHORT).show();
-//
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//            }
-//        });
-  }
+        fusedLocationProviderClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
+            @Override
+            public void onComplete(@NonNull Task<Location> task) {
+                Location location = task.getResult();
+
+                if (location != null) {
+                    Geocoder geocoder = new Geocoder(DriverOffence.this, Locale.getDefault());
+                    try {
+                        List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+                        latitude = String.valueOf(addresses.get(0).getLatitude());
+                        longitude = String.valueOf(addresses.get(0).getLongitude());
+                        address = String.valueOf(addresses.get(0).getAddressLine(0));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -245,11 +222,6 @@ public class DriverOffence extends AppCompatActivity {
 //            driverLicenseNumber.setError("");
 
         }
-        String locationOfOffence = driverOffenceLocation.getText().toString().trim();
-        if(locationOfOffence.isEmpty()){
-//            driverOffenceLocation.setError("");
-//            driverOffenceLocation.setError("address of driver cannot be empty");
-        }
 
        String offenceDescription = driverOffenceDescription.getText().toString().trim();
 
@@ -263,9 +235,9 @@ public class DriverOffence extends AppCompatActivity {
 //           Toast.makeText(this, lat, Toast.LENGTH_SHORT).show();
 
             //Writing to database
-           com.example.trafficmi.DriverOffenceRecords driverOffenceRecords = new com.example.trafficmi.DriverOffenceRecords(fullNameDriver, driverLicense, locationOfOffence,offenceDescription,  lat,longt);
+           com.example.trafficmi.DriverOffenceRecords driverOffenceRecords = new com.example.trafficmi.DriverOffenceRecords(fullNameDriver, driverLicense, offenceDescription, radioSexButton.getText().toString(),  latitude,longitude, address);
             referenci.child(driverLicense).setValue(driverOffenceRecords);
-           driverOffenceLocation.setError("");
+
            Toast.makeText(getApplicationContext(),
                     "Records Successfully updated",
                     Toast.LENGTH_LONG)
@@ -273,7 +245,7 @@ public class DriverOffence extends AppCompatActivity {
 
            fullNameOfDriver.setText("");
             driverLicenseNumber.setText("");
-            driverOffenceLocation.setText("");
+
            driverOffenceDescription.setText("");
            //startActivity( new Intent(this, DriverOffenseDetail.class));
 

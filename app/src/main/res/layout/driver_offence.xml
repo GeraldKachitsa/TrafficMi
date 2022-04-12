@@ -43,7 +43,7 @@
         android:layout_height="wrap_content">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/vehicleRegNumber"
+            android:id="@+id/driverOffenseName"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
             app:startIconTint="@color/dim_grey"
             tools:ignore="MissingConstraints">
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/vehicleRegNumber_id"
+                android:id="@+id/driverName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text" />
@@ -67,7 +67,7 @@
         <LinearLayout
             android:id="@+id/radioHolder"
             android:orientation="horizontal"
-            android:layout_below="@+id/vehicleRegNumber"
+            android:layout_below="@+id/driverOffenseName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
@@ -110,7 +110,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_below="@+id/radioHolder"
-            android:id="@+id/carMake"
+            android:id="@+id/licenseNum"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -127,39 +127,14 @@
             tools:ignore="MissingConstraints">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/carMake_id"
+                android:id="@+id/lisenceNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_below="@id/carMake"
-            android:id="@+id/carName"
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:hint="Location"
-
-            android:textColorHint="@color/dim_grey"
-            app:boxStrokeColor="@color/dim_grey"
-            app:endIconDrawable="@drawable/ic_clear"
-            app:endIconMode="clear_text"
-            app:endIconTint="@color/black"
-
-            app:startIconDrawable="@drawable/ic_location"
-            app:startIconTint="@color/dim_grey"
-            tools:ignore="MissingConstraints">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/car_name_id"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text" />
-
-        </com.google.android.material.textfield.TextInputLayout>
 
 
         <Button
@@ -181,27 +156,12 @@
             android:id="@+id/otherOffenceDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/carName"
+            android:layout_below="@+id/licenseNum"
             android:layout_marginTop="-1dp"
             android:ems="10"
             android:gravity="start|top"
             android:hint="Other details"
             android:inputType="textMultiLine" />
-
-<!--        <TextView-->
-<!--            android:id="@+id/textView1"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_below="@id/goToNextOffenceBtn"-->
-
-<!--            android:layout_marginTop="20dp"-->
-<!--            android:gravity="center"-->
-<!--            android:text="SEE"-->
-<!--            android:textColor="@color/design_default_color_error"-->
-
-
-<!--            tools:ignore="MissingConstraints" />-->
-
 
 
 

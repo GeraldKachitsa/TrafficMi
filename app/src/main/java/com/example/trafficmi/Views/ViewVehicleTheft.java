@@ -35,6 +35,7 @@ public class ViewVehicleTheft extends AppCompatActivity {
     TextView tvView;
     TextInputEditText search_id_2;
     RecyclerView recyclerView;
+
 // Firebase database
     FirebaseDatabase root = FirebaseDatabase.getInstance();
     DatabaseReference reference = root.getReference().child("VehicleTheftReport");

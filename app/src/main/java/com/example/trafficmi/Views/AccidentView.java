@@ -45,7 +45,8 @@ public class AccidentView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accident_view);
-//        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
+        //firebase offline capability
         reference.keepSynced(true);
         dataValues = new ArrayList<AccidentSceneModel>();
         recyclerView = findViewById(R.id.rec_accident);
@@ -88,8 +89,6 @@ public class AccidentView extends AppCompatActivity {
 
 
                             try{
-
-
 
                             }catch (ClassCastException cce2){
 
