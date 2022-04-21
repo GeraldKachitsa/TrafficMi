@@ -16,6 +16,7 @@ public class VehicleTheftData extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vehicle_theft_data);
+
         carNameTheft= findViewById(R.id.carNameTheft);
         carOwnerTheft= findViewById(R.id.carOwnerTheft);
         sexTheft= findViewById(R.id.sexTheft);
@@ -26,13 +27,13 @@ public class VehicleTheftData extends AppCompatActivity {
         detailsOfTheft = findViewById(R.id.detailsOfTheft);
         Intent intent = getIntent();
         carNameTheft.setText("Car Name :" + " " + " " + intent.getStringExtra("carNameTheft"));
-        carOwnerTheft.setText("Owner of Car :" + " " + " " + intent.getStringExtra("carOwnerTheft"));
-        sexTheft.setText("Sex :" + " " + " " + intent.getStringExtra("sexOfOwner"));
+        carOwnerTheft.setText("Owner of Car :" + " " + " " + intent.getStringExtra("locationTheft"));
+        sexTheft.setText("Sex :" + " " + " " + intent.getStringExtra("colorOfCarTheft"));
         carRegNumTheft.setText("Car Registration Number :" + " " + " " + intent.getStringExtra("carRegNumTheft"));
-        carYearOfMakeTheft.setText("Car Year of Make :" + " " + " " + intent.getStringExtra("carYearOfMakeTheft"));
-        colorOfCarTheft.setText("Colour of Car :" + " " + " " + intent.getStringExtra("colorOfCarTheft"));
+        carYearOfMakeTheft.setText("Car Year of Make :" + " " + " " + intent.getStringExtra("sexOfOwner"));
+        colorOfCarTheft.setText("Colour of Car :" + " " + " " + intent.getStringExtra("carOwnerTheft"));
         locationTheft.setText("Location:" + " " + " " + intent.getStringExtra("locationTheft"));
-        detailsOfTheft.setText("Vehicle Theft Details :" + " " + " " + intent.getStringExtra("detailsOfTheft"));
+        detailsOfTheft.setText("Vehicle Theft Details :" + " " + " " + intent.getStringExtra("carYearOfMakeTheft"));
 
     }
 }

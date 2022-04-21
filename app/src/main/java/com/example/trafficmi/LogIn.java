@@ -14,7 +14,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class LogIn extends AppCompatActivity {
-    private Button chiefTrafficOfficerSignInBtn;
+    private Button chiefTrafficOfficerSignInBtn, graphButton,buttonScanner,location, smsButton;
     private TextInputEditText chiefTrafficOfficerUsername;
     private TextInputEditText chiefTrafficOfficerPassword;
 
@@ -29,6 +29,12 @@ public class LogIn extends AppCompatActivity {
         chiefTrafficOfficerSignInBtn = (Button) findViewById(R.id.chiefTrafficOfficerSignInBtn);
         chiefTrafficOfficerUsername = (TextInputEditText) findViewById(R.id.username);
         chiefTrafficOfficerPassword = (TextInputEditText) findViewById(R.id.password);
+        graphButton = (Button)findViewById(R.id.graphButton);
+        buttonScanner = findViewById(R.id.buttonScanner);
+        smsButton = findViewById(R.id.smsButton);
+        location = findViewById(R.id.location);
+
+
         chiefTrafficOfficerSignInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,6 +45,65 @@ public class LogIn extends AppCompatActivity {
             }
         });
 
+        //Setting events to view graph button
+
+        graphButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+               viewGraphicData();
+            }
+        });
+        buttonScanner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                scan();
+            }
+        });
+
+        smsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                sendSMS();
+            }
+        });
+
+
+            location.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    viewAccidentLocation();
+                }
+            });
+    }
+
+    private void sendSMS() {
+
+        Intent intent = new Intent(this,DemoSms.class);
+        startActivity(intent);
+    }
+
+    private void viewAccidentLocation() {
+        Intent intent = new Intent(this,ViewAccidentLocation.class);
+        startActivity(intent);
+    }
+
+    private void scan() {
+        Intent intent = new Intent(this,LicenseScanner.class);
+        startActivity(intent);
+    }
+
+    //View Graphing data method
+
+    private void viewGraphicData() {
+
+        Intent intent = new Intent(this, ViewGraphicalData.class);
+
+
+
+        startActivity(intent);
     }
 
     public void goToChoiceOfWork() {

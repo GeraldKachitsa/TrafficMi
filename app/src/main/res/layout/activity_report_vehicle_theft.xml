@@ -34,46 +34,50 @@
         </RelativeLayout>
 
     </androidx.appcompat.widget.Toolbar>
+
     <RelativeLayout
-        android:padding="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/vehicleTheftToolBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/vehicleTheftToolBar"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="39dp"
+        android:padding="30dp">
 
 
         <RadioGroup
 
+            android:id="@+id/radioGroupSex"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/radioGroupSex"
             android:layout_below="@id/vehicle_blue_book"
-            android:orientation="horizontal"
-            >
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
             <RadioButton
 
+                android:id="@+id/radioBtnMale"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Male"
-                android:id="@+id/radioBtnMale"
                 android:checked="false"
+                android:text="Male"
                 android:textSize="16sp" />
 
             <RadioButton
+                android:id="@+id/radioBtnFemale"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Female"
-                android:id="@+id/radioBtnFemale"
                 android:checked="false"
-                android:textSize="16sp"
-                />
+                android:text="Female"
+                android:textSize="16sp" />
         </RadioGroup>
+
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_below="@+id/carName"
             android:id="@+id/vehicle_blue_book"
-            android:layout_marginBottom="20px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/carName"
+            android:layout_marginTop="5dp"
             android:textColorHint="@color/dim_grey"
             app:boxStrokeColor="@color/dim_grey"
 
@@ -85,13 +89,13 @@
             app:layout_constraintTop_toBottomOf="@+id/vehicleRegNumber"
             app:startIconDrawable="@drawable/ic_account"
             app:startIconTint="@color/dim_grey"
-            tools:ignore="MissingConstraints"
-            >
+            tools:ignore="MissingConstraints">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/blue_book"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/blue_book"
+                android:background="@drawable/edt_background"
                 android:hint="Car owner"
                 android:inputType="text" />
 
@@ -99,10 +103,10 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/vehicleRegNumber"
-            android:layout_below="@+id/radioGroupSex"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20px"
+            android:layout_below="@+id/radioGroupSex"
+            android:layout_marginTop="5dp"
 
             android:textColorHint="@color/dim_grey"
             app:boxStrokeColor="@color/dim_grey"
@@ -114,10 +118,11 @@
             tools:ignore="MissingConstraints">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/reg_num"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/edt_background"
                 android:hint="Registration number"
-                android:id="@+id/reg_num"
                 android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -126,7 +131,8 @@
             android:id="@+id/carName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20px"
+            android:layout_marginTop="1dp"
+            android:paddingTop="2dp"
 
             android:textColorHint="@color/dim_grey"
             app:boxStrokeColor="@color/dim_grey"
@@ -138,20 +144,21 @@
             tools:ignore="MissingConstraints">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/car_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/edt_background"
                 android:hint="Car Name"
-                android:id="@+id/car_name"
                 android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/carMake"
-            android:layout_below="@+id/vehicleRegNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20px"
+            android:layout_below="@+id/vehicleRegNumber"
+            android:layout_marginTop="5dp"
 
             android:textColorHint="@color/dim_grey"
             app:boxStrokeColor="@color/dim_grey"
@@ -163,18 +170,21 @@
             tools:ignore="MissingConstraints">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/car_make"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/edt_background"
                 android:hint="Year of make"
-                android:id="@+id/car_make"
                 android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/carColor"
-            android:layout_below="@+id/carMake"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/carMake"
+            android:layout_marginTop="5dp"
             android:layout_marginBottom="20px"
 
             android:textColorHint="@color/dim_grey"
@@ -187,45 +197,56 @@
             tools:ignore="MissingConstraints">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/car_color"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/edt_background"
                 android:hint="Color"
-                android:id="@+id/car_color"
                 android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <EditText
             android:id="@+id/locationTheft"
-            android:layout_width="match_parent"
-            android:hint="Location"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:textColorHint="@color/dim_grey"
-            app:startIconTint="@color/dim_grey"
-            app:startIconDrawable="@drawable/ic_location"
+            android:layout_width="347dp"
+            android:layout_height="45dp"
             android:layout_below="@+id/carColor"
+            android:background="@drawable/edt_background"
+            android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:hint="Location"
+            android:inputType="textMultiLine"
+            android:paddingLeft="15dp"
+            android:paddingTop="10dp"
+            android:textColorHint="@color/dim_grey"
+            app:startIconDrawable="@drawable/ic_location"
+            app:startIconTint="@color/dim_grey" />
 
         <EditText
             android:id="@+id/otherOffenceDetails"
-            android:layout_width="match_parent"
-            android:hint="Other details"
-            android:layout_height="wrap_content"
-            android:ems="10"
+            android:layout_width="352dp"
+            android:layout_height="74dp"
             android:layout_below="@+id/locationTheft"
-            android:textColorHint="@color/dim_grey"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edt_background"
+            android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:hint="Other details"
+            android:inputType="textMultiLine"
+            android:padding="20dp"
+            android:textColorHint="@color/dim_grey" />
 
 
         <Button
             android:id="@+id/reportTheftBtn"
-            android:layout_width="361dp"
-            android:layout_height="88dp"
+            android:layout_width="360dp"
+            android:layout_height="69dp"
             android:layout_below="@+id/otherOffenceDetails"
-            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:paddingBottom="10dp"
+
+
+            android:background="@drawable/edt_background"
             android:text="Report"
             app:backgroundTint="@color/dim_grey"
             app:layout_constraintBottom_toBottomOf="parent"

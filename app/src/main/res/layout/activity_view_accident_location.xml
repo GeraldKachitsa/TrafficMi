@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".ViewAccidentLocation">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/location"
+        android:textSize="20sp"
+        android:textColor="#A85CF9"
+        android:id="@+id/show_location"
+        />
+    <Button
+        android:layout_marginTop="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="#A85CF9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/get_location"
+        android:id="@+id/getLocation"
+        />
+
+</LinearLayout>

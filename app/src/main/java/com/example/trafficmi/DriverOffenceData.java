@@ -20,9 +20,9 @@ public class DriverOffenceData extends AppCompatActivity {
         otherDetails2 = findViewById(R.id.otherDetail);
         Intent intent = getIntent();
         driverName.setText("Driver's Name :" + " " + " " + intent.getStringExtra("driverName"));
-        sex.setText("Sex :" + " " + " " + intent.getStringExtra("driverSex"));
-        licenseNumber.setText("License Number :" + " " + " " + intent.getStringExtra("offenceDescription"));
-        otherDetails2.setText("Other Details :" + " " + " " + intent.getStringExtra("offenceLocation"));
+        sex.setText("Sex :" + " " + " " + intent.getStringExtra("selectedSex"));
+        licenseNumber.setText("License Number :" + " " + " " + intent.getStringExtra("licenseNumber"));
+        otherDetails2.setText("Other Details :" + " " + " " + intent.getStringExtra("driverOffenceDescription"));
 
     }
 }

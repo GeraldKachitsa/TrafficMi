@@ -49,7 +49,7 @@ public class DriverOffence extends AppCompatActivity {
     private Button updateDriverRecordsBtn;
     RadioGroup offenceRadioGroup;
     RadioButton radioSexButton;
-    String longitude, latitude, address;
+//    String longitude, latitude, address;
 
 
     private TextView textView;
@@ -70,7 +70,7 @@ public class DriverOffence extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.driver_offence);
         fullNameOfDriver = (TextInputEditText) findViewById(R.id.driverName);
-        driverLicenseNumber = (TextInputEditText) findViewById(R.id.licenseNum);
+        driverLicenseNumber = (TextInputEditText) findViewById(R.id.lisenceNumber);
         driverOffenceDescription = (EditText) findViewById(R.id.otherOffenceDetails);
         driverOffenceToolBar = (Toolbar) findViewById(R.id.driverOffenceToolBar);
 //        textView = findViewById(R.id.textView1);
@@ -114,17 +114,17 @@ public class DriverOffence extends AppCompatActivity {
             public void onComplete(@NonNull Task<Location> task) {
                 Location location = task.getResult();
 
-                if (location != null) {
-                    Geocoder geocoder = new Geocoder(DriverOffence.this, Locale.getDefault());
-                    try {
-                        List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-                        latitude = String.valueOf(addresses.get(0).getLatitude());
-                        longitude = String.valueOf(addresses.get(0).getLongitude());
-                        address = String.valueOf(addresses.get(0).getAddressLine(0));
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
+//                if (location != null) {
+//                    Geocoder geocoder = new Geocoder(DriverOffence.this, Locale.getDefault());
+//                    try {
+//                        List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+//                        latitude = String.valueOf(addresses.get(0).getLatitude());
+//                        longitude = String.valueOf(addresses.get(0).getLongitude());
+//                        address = String.valueOf(addresses.get(0).getAddressLine(0));
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
             }
         });
     }
@@ -140,16 +140,17 @@ public class DriverOffence extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
-        switch (item.getItemId()) {
-            case R.id.log_out:
-                startActivity(new Intent(this, LogIn.class));
-                return true;
-            case R.id.help:
-                startActivity(new Intent(this, HelpCenter.class));
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
+//        switch (item.getItemId()) {
+//            case R.id.log_out:
+//                startActivity(new Intent(this, LogIn.class));
+//                return true;
+//            case R.id.help:
+//                startActivity(new Intent(this, HelpCenter.class));
+//                return true;
+//            default:
+//                return super.onOptionsItemSelected(item);
+//        }
+        return true;
     }
 
     @Override
@@ -235,7 +236,7 @@ public class DriverOffence extends AppCompatActivity {
 //           Toast.makeText(this, lat, Toast.LENGTH_SHORT).show();
 
             //Writing to database
-           com.example.trafficmi.DriverOffenceRecords driverOffenceRecords = new com.example.trafficmi.DriverOffenceRecords(fullNameDriver, driverLicense, offenceDescription, radioSexButton.getText().toString(),  latitude,longitude, address);
+           com.example.trafficmi.DriverOffenceRecords driverOffenceRecords = new com.example.trafficmi.DriverOffenceRecords(fullNameDriver,  radioSexButton.getText().toString(),driverLicense, offenceDescription);
             referenci.child(driverLicense).setValue(driverOffenceRecords);
 
            Toast.makeText(getApplicationContext(),

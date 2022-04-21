@@ -39,10 +39,12 @@
     </androidx.appcompat.widget.Toolbar>
 
     <RelativeLayout
-        android:padding="20dp"
-        android:layout_below="@id/accidentSceneToolBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/accidentSceneToolBar"
+        android:layout_marginTop="5dp"
+        android:padding="20dp">
+
         <com.google.android.material.textfield.TextInputLayout
 
             android:id="@+id/vehicleRegNumber"
@@ -51,6 +53,7 @@
             android:layout_height="wrap_content"
 
             android:hint="Vehicle Registration Number"
+
 
             android:textColorHint="@color/dim_grey"
             app:boxStrokeColor="@color/dim_grey"
@@ -65,16 +68,20 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
+
+                android:inputType="text"
+                android:background="@drawable/edt_background"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_below="@id/vehicleRegNumber"
             android:id="@+id/carName"
-
             android:layout_width="match_parent"
+
             android:layout_height="wrap_content"
+            android:layout_below="@id/vehicleRegNumber"
+
+            android:layout_marginTop="10dp"
 
             android:hint="Car Name"
 
@@ -91,17 +98,20 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:inputType="text"
+                android:background="@drawable/edt_background"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/carMake"
-            android:layout_below="@id/carName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/carName"
 
             android:hint="Year of Make"
+
+            android:layout_marginTop="10dp"
 
             android:textColorHint="@color/black"
             app:boxStrokeColor="@color/black"
@@ -116,17 +126,20 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:inputType="text"
+                android:background="@drawable/edt_background"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/carColor"
-            android:layout_below="@id/carMake"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/carMake"
 
             android:hint="Color of car"
+
+            android:layout_marginTop="10dp"
 
             android:textColorHint="@color/black"
             app:boxStrokeColor="@color/black"
@@ -141,19 +154,23 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:inputType="text"
+                android:background="@drawable/edt_background"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <EditText
             android:id="@+id/otherOffenceDetails"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="362dp"
+            android:layout_height="74dp"
             android:layout_below="@+id/carColor"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edt_background"
             android:ems="10"
             android:gravity="start|top"
             android:hint="accident scene details"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:padding="20dp" />
 
         <Button
             android:id="@+id/reportTheftBtn"
@@ -165,8 +182,6 @@
             android:backgroundTint="@color/dim_grey"
             android:text="Report"
             tools:ignore="MissingConstraints" />
-
-
 
 
     </RelativeLayout>

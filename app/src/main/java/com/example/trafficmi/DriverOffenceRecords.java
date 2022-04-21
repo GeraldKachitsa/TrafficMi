@@ -21,14 +21,12 @@ public class DriverOffenceRecords {
 
 
 
-    public DriverOffenceRecords(String driverName, String licenseNumber, String driverOffenceLocation, String driverOffenceDescription, String selectedSex, String lat, String longt) {
+    public DriverOffenceRecords(String driverName, String licenseNumber, String driverOffenceDescription, String selectedSex) {
         this.driverName =driverName;
         this.licenseNumber = licenseNumber;
-        this.driverOffenceLocation =driverOffenceLocation;
         this.driverOffenceDescription = driverOffenceDescription;
         this.selectedSex = selectedSex;
-        this.lat = lat;
-        this.longt = longt;
+
     }
 
 

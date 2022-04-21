@@ -47,13 +47,13 @@ public class DriverOffinceAdapter extends RecyclerView.Adapter<DriverOffinceAdap
             public void onClick(View v) {
                 Intent intent = new Intent(context, DriverOffenceData.class);
                 intent.putExtra("driverName", driversOffenceModel.getDisPayName().toString());
-                intent.putExtra("driverSex", driversOffenceModel.getSelectedSex().toString());
-                intent.putExtra("driverLicenseNumber", driversOffenceModel.getLisenceNumber().toString());
-                intent.putExtra("offenceDescription", driversOffenceModel.getDriverOffenceDescription().toString());
-                intent.putExtra("driverLatitude", driversOffenceModel.getLat().toString());
-                intent.putExtra("driverLongitude", driversOffenceModel.getLongt().toString());
-                intent.putExtra("latitude", driversOffenceModel.getLat().toString());
-                intent.putExtra("longitude", driversOffenceModel.getLongt().toString());
+                intent.putExtra("selectedSex", driversOffenceModel.getSelectedSex().toString());
+                intent.putExtra("licenseNumber", driversOffenceModel.getLisenceNumber().toString());
+                intent.putExtra("driverOffenceDescription", driversOffenceModel.getDriverOffenceDescription().toString());
+//                intent.putExtra("driverLatitude", driversOffenceModel.getLat().toString());
+//                intent.putExtra("driverLongitude", driversOffenceModel.getLongt().toString());
+//                intent.putExtra("latitude", driversOffenceModel.getLat().toString());
+//                intent.putExtra("longitude", driversOffenceModel.getLongt().toString());
 
                 context.startActivity(intent);
             }

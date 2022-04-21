@@ -30,6 +30,7 @@
             app:backgroundTint="@color/dim_grey"
 
             app:cornerRadius="50dp"
+            android:background="@drawable/edt_background"
             tools:ignore="MissingConstraints" />
 
         <Button
@@ -43,6 +44,8 @@
             android:textColor="#ECE8E8"
             app:backgroundTint="@color/dim_grey"
             app:cornerRadius="50dp"
+            android:background="@drawable/edt_background"
+            android:layout_marginTop="10dp"
             tools:ignore="MissingConstraints" />
 
         <Button
@@ -56,6 +59,8 @@
             android:textStyle="bold"
             app:backgroundTint="@color/dim_grey"
             app:cornerRadius="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edt_background"
             tools:ignore="MissingConstraints" />
 
         <Button
@@ -69,6 +74,8 @@
             android:textStyle="bold"
             app:backgroundTint="@color/dim_grey"
             app:cornerRadius="50dp"
+            android:background="@drawable/edt_background"
+            android:layout_marginTop="10dp"
             tools:ignore="MissingConstraints" />
     </RelativeLayout>
 

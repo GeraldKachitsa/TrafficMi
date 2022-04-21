@@ -4,19 +4,19 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class VehicleTheftReport {
 
-    String  carName, carMake, carColor, vehicleRegNumber,vehicle_blue_book,vehicleTheftDescription, selectedSex,location;
+    String  carName, carMake, carColor, vehicleRegNumber,carOwner,vehicleTheftDescription, selectedSex,location;
 
     public VehicleTheftReport() {
 
     }
 
-    public VehicleTheftReport( String  carName, String  carMake, String carColor, String vehicleRegNumber, String vehicle_blue_book, String vehicleTheftDescription, String selectedSex,String location) {
+    public VehicleTheftReport( String  carName, String  carMake, String carColor, String vehicleRegNumber, String carOwner, String vehicleTheftDescription, String selectedSex,String location) {
 
         this.carName = carName;
         this.carMake = carMake;
         this.carColor = carColor;
         this.vehicleRegNumber = vehicleRegNumber;
-        this.vehicle_blue_book = vehicle_blue_book;
+        this.carOwner = carOwner;
         this.vehicleTheftDescription = vehicleTheftDescription;
         this.selectedSex = selectedSex;
         this.location = location;
@@ -64,11 +64,11 @@ public class VehicleTheftReport {
     }
 
     public String getVehicle_blue_book() {
-        return vehicle_blue_book;
+        return carOwner;
     }
 
     public void setVehicle_blue_book(String vehicle_blue_book) {
-        this.vehicle_blue_book = vehicle_blue_book;
+        this.carOwner = vehicle_blue_book;
     }
 
     public String getLocation() {
@@ -84,7 +84,7 @@ public class VehicleTheftReport {
     }
 
     public void setVehicleTheftDescription(String vehicleTheftDescription) {
-        this.vehicle_blue_book = vehicleTheftDescription;
+        this.carOwner = vehicleTheftDescription;
     }
 
     public String getSelectedSex() {

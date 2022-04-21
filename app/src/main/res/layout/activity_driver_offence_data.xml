@@ -40,35 +40,40 @@
         android:id="@+id/topCardView"
         android:layout_below="@+id/accidentSceneToolBar"
         >
+
         <RelativeLayout
             android:id="@+id/loc_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="25dp">
+            android:layout_width="369dp"
+            android:layout_height="630dp"
+            android:padding="25dp"
+          >
 
             <TextView
-                android:text="Driver's Name:"
                 android:id="@+id/driversN"
-                android:paddingTop="40dp"
-                android:padding="20dp"
-                android:textColor="@color/dim_grey"
-                android:textStyle="bold"
-                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:background="#A8DDF4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:text="Sex"
-                android:id="@+id/sexId"
-                android:layout_below="@+id/driversN"
-                android:textStyle="bold"
-                android:textColor="@color/dim_grey"
-                android:paddingTop="40dp"
                 android:padding="20dp"
+                android:paddingTop="40dp"
+                android:layout_marginTop="50dp"
+                android:text="Driver's Name:"
+                android:textColor="@color/dim_grey"
                 android:textSize="18sp"
-                android:background="#C5E6F4"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/sexId"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/driversN"
+                android:background="#C5E6F4"
+                android:padding="20dp"
+                android:paddingTop="40dp"
+                android:layout_marginTop="5dp"
+                android:text="Sex"
+                android:textColor="@color/dim_grey"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/license"
@@ -76,23 +81,26 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/sexId"
                 android:background="#D8EAF3"
-                android:textSize="18sp"
                 android:padding="20dp"
                 android:text="License Number"
                 android:textColor="@color/dim_grey"
-                android:textStyle="bold" />
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"/>
 
             <TextView
-                android:background="#E7F0F4"
                 android:id="@+id/otherDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/license"
+                android:background="#E7F0F4"
                 android:padding="20dp"
                 android:text="Other Details:"
                 android:textColor="@color/dim_grey"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                />
 
         </RelativeLayout>
 

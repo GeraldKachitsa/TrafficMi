@@ -32,7 +32,7 @@ public class ReportVehicleTheft extends AppCompatActivity  {
     TextInputEditText carMake;
     TextInputEditText carColor;
     TextInputEditText vehicleRegNumber;
-    TextInputEditText vehicle_blue_book;
+    TextInputEditText CarOwner;
     EditText locationTheft;
     EditText vehicleTheftDescription;
     Button reportTheftBtn;
@@ -57,7 +57,7 @@ public class ReportVehicleTheft extends AppCompatActivity  {
         carMake = (TextInputEditText) findViewById(R.id.car_make);
         carColor = (TextInputEditText) findViewById(R.id.car_color);
         vehicleRegNumber = (TextInputEditText) findViewById(R.id.reg_num);
-        vehicle_blue_book = (TextInputEditText) findViewById(R.id.blue_book);
+        CarOwner = (TextInputEditText) findViewById(R.id.blue_book);
         vehicleTheftDescription = (EditText) findViewById(R.id.otherOffenceDetails);
         reportTheftBtn = (Button) findViewById(R.id.reportTheftBtn);
         locationTheft = findViewById(R.id.locationTheft);
@@ -194,8 +194,8 @@ public class ReportVehicleTheft extends AppCompatActivity  {
 //            vehicleRegNumber.setError("");
 
         }
-        String CarOwner =  vehicle_blue_book.getText().toString().trim();
-        if(CarOwner.isEmpty()){
+        String CarOwner1 =  CarOwner.getText().toString().trim();
+        if(CarOwner1.isEmpty()){
 
 //            vehicle_blue_book .setError("blue book cannot be empty");
         }
@@ -221,7 +221,7 @@ public class ReportVehicleTheft extends AppCompatActivity  {
 
 //            carNameTheft,carOwnerTheft,sexTheft,carRegNumTheft,carYearOfMakeTheft,colorOfCarTheft,locationTheft,detailsOfTheft;
 
-            VehicleTheftReport vehicleTheftReport = new VehicleTheftReport( fullNameCar, makeOfCar, colorOfVehicle, regNumberOfVehicle, CarOwner, accidentDescription, selectedSex,location);
+            VehicleTheftReport vehicleTheftReport = new VehicleTheftReport( fullNameCar, makeOfCar, colorOfVehicle, regNumberOfVehicle, CarOwner1, accidentDescription, selectedSex,location);
             referenci.child(regNumberOfVehicle).setValue(vehicleTheftReport);
             Toast.makeText(getApplicationContext(), "Reported Successfully...", Toast.LENGTH_LONG).show();
 
@@ -229,7 +229,7 @@ public class ReportVehicleTheft extends AppCompatActivity  {
             carMake.setText("");
             carColor.setText("");
             vehicleRegNumber.setText("");
-            vehicle_blue_book.setText("");
+            CarOwner.setText("");
             vehicleTheftDescription.setText("");
 //            startActivity( new Intent(this, ViewVehicleTheft.class));
 

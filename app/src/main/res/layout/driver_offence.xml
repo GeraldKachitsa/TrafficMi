@@ -55,12 +55,14 @@
             app:endIconTint="@color/dim_grey"
             app:startIconDrawable="@drawable/ic_account"
             app:startIconTint="@color/dim_grey"
-            tools:ignore="MissingConstraints">
+            tools:ignore="MissingConstraints"
+            android:layout_marginTop="70dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/driverName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:inputType="text"
+                android:background="@drawable/edt_background"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -77,6 +79,7 @@
                 android:layout_height="wrap_content"
                 android:text="Sex : "
                 android:textSize="16sp"
+                android:layout_marginTop="10dp"
 
                 />
 
@@ -86,6 +89,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/offenceRadioGroup"
                 android:orientation="horizontal"
+                android:layout_marginTop="10dp"
                 >
                 <RadioButton
 
@@ -116,6 +120,7 @@
             android:layout_height="wrap_content"
 
             android:hint="License number"
+            android:layout_marginTop="10dp"
 
             android:textColorHint="@color/dim_grey"
             app:boxStrokeColor="@color/dim_grey"
@@ -124,13 +129,15 @@
             app:endIconTint="@color/dim_grey"
             app:startIconDrawable="@drawable/ic_id"
             app:startIconTint="@color/dim_grey"
+
             tools:ignore="MissingConstraints">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/lisenceNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:inputType="text"
+                android:background="@drawable/edt_background"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -154,14 +161,18 @@
 
         <EditText
             android:id="@+id/otherOffenceDetails"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="370dp"
+            android:layout_height="118dp"
             android:layout_below="@+id/licenseNum"
-            android:layout_marginTop="-1dp"
+            android:layout_marginTop="10dp"
+            android:paddingTop="20dp"
+            android:background="@drawable/edt_background"
             android:ems="10"
             android:gravity="start|top"
             android:hint="Other details"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:paddingLeft="10dp"
+            />
 
 
 
